@@ -2,37 +2,37 @@ import React, { useState, useEffect } from 'react';
 
 const optionsContainerStyles = {
   marginBottom: '25px',
-  borderTop: '1px solid var(--light-gray-3)', // Divisor acima das opções
-  paddingTop: '25px', // Espaço acima do primeiro grupo de opções
+  borderTop: '1px solid var(--light-gray-3)',
+  paddingTop: '25px', 
 };
 
 const optionGroupStyles = {
-  marginBottom: '25px', // Aumentar espaço entre grupos de opção (Tamanho, Cor)
+  marginBottom: '25px', 
 };
 
 const optionLabelStyles = {
   display: 'block',
   fontSize: '16px',
-  fontWeight: '600', // Um pouco mais de peso
-  color: 'var(--dark-gray)', // Cor mais escura para o label
-  marginBottom: '12px', // Mais espaço
+  fontWeight: '600', 
+  color: 'var(--dark-gray)', 
+  marginBottom: '12px', 
 };
 
 // Estilos para Seleção de Tamanho
 const sizeSelectorStyles = {
   display: 'flex',
-  flexWrap: 'wrap', // Para quebrar se muitos tamanhos
+  flexWrap: 'wrap',
   gap: '10px',
 };
 
 const sizeOptionStyles = {
-  padding: '10px 18px', // Ajustar padding
+  padding: '10px 18px', 
   border: '1px solid var(--light-gray-2)',
   borderRadius: '4px',
   cursor: 'pointer',
   backgroundColor: 'var(--white)',
   color: 'var(--dark-gray-2)',
-  minWidth: '45px', // Largura mínima
+  minWidth: '45px', 
   textAlign: 'center',
   fontSize: '14px',
   fontWeight: '500',
@@ -42,58 +42,58 @@ const sizeOptionStyles = {
 const sizeOptionSelectedStyles = {
   ...sizeOptionStyles,
   borderColor: 'var(--primary)',
-  backgroundColor: 'var(--primary-light)', // Usando a variável que definimos
+  backgroundColor: 'var(--primary-light)', 
   color: 'var(--primary)',
-  fontWeight: 'bold', // Mais destaque para o selecionado
+  fontWeight: 'bold', 
 };
 
 // Estilos para Seleção de Cor
 const colorSelectorStyles = {
   display: 'flex',
   flexWrap: 'wrap',
-  gap: '12px', // Espaço entre as bolinhas de cor
+  gap: '12px',
 };
 
-const colorSwatchOuterStyles = { // Círculo externo para o efeito de borda no selecionado
-  width: '36px',  // Tamanho do círculo externo
+const colorSwatchOuterStyles = { 
+  width: '36px',  
   height: '36px',
   borderRadius: '50%',
-  padding: '3px', // Espaçamento para a "borda"
+  padding: '3px', 
   cursor: 'pointer',
-  border: '2px solid transparent', // Borda transparente por padrão
+  border: '2px solid transparent',
   transition: 'border-color 0.2s ease',
 };
 
 const colorSwatchOuterSelectedStyles = {
   ...colorSwatchOuterStyles,
-  borderColor: 'var(--primary)', // Borda rosa no círculo externo do selecionado
+  borderColor: 'var(--primary)', 
 };
 
 const colorSwatchInnerStyles = (colorHex, isAvailable) => ({
-  width: '100%', // Ocupa todo o espaço do círculo externo
+  width: '100%', 
   height: '100%',
   borderRadius: '50%',
   backgroundColor: colorHex,
-  border: `1px solid ${isAvailable ? 'rgba(0,0,0,0.1)' : 'var(--light-gray)'}`, // Borda sutil na bolinha interna
-  opacity: isAvailable ? 1 : 0.5, // Menos opacidade se indisponível
-  pointerEvents: isAvailable ? 'auto' : 'none', // Não clicável se indisponível
-  display: 'flex', // Para o X de indisponível
+  border: `1px solid ${isAvailable ? 'rgba(0,0,0,0.1)' : 'var(--light-gray)'}`, 
+  opacity: isAvailable ? 1 : 0.5,
+  pointerEvents: isAvailable ? 'auto' : 'none',
+  display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
 });
 
 // Estilo para o "X" em cores indisponíveis
 const unavailableMarkStyles = {
-  color: 'var(--dark-gray)', // Cor do X
+  color: 'var(--dark-gray)',
   fontSize: '14px',
   fontWeight: 'bold',
   lineHeight: '1',
 };
 
 
-function ProductOptions({ product, onOptionChange }) { // Adicionada prop onOptionChange
+function ProductOptions({ product, onOptionChange }) { 
   const [selectedSize, setSelectedSize] = useState('');
-  const [selectedColor, setSelectedColor] = useState(null); // Armazena o objeto da cor
+  const [selectedColor, setSelectedColor] = useState(null); 
 
   // Inicializa a cor selecionada com a primeira disponível
   useEffect(() => {
@@ -102,7 +102,7 @@ function ProductOptions({ product, onOptionChange }) { // Adicionada prop onOpti
       if (firstAvailableColor) {
         setSelectedColor(firstAvailableColor);
       } else if (product.colors.length > 0) {
-        setSelectedColor(product.colors[0]); // Seleciona a primeira mesmo se indisponível
+        setSelectedColor(product.colors[0]); 
       }
     }
   }, [product]);
@@ -110,7 +110,7 @@ function ProductOptions({ product, onOptionChange }) { // Adicionada prop onOpti
   // Inicializa o tamanho selecionado com o primeiro disponível
    useEffect(() => {
     if (product && product.sizes && product.sizes.length > 0) {
-      setSelectedSize(product.sizes[0]); // Seleciona o primeiro tamanho por padrão
+      setSelectedSize(product.sizes[0]);
     }
   }, [product]);
 

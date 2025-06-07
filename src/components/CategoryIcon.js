@@ -30,16 +30,9 @@ const iconCircleActiveStyles = {
 
 // Estilos para a tag <img> do SVG
 const svgIconStyles = {
-  width: '60px',  // Ajuste o tamanho conforme necessário
-  height: '60px', // Ajuste o tamanho conforme necessário
+  width: '60px',
+  height: '60px',
 };
-
-// ATENÇÃO: Para que a cor do SVG mude com o CSS (usando 'filter' ou se o SVG usar 'currentColor'),
-// o SVG precisa ser monocromático ou preparado para isso.
-// A abordagem com 'filter' pode não dar a cor exata --primary.
-// Uma alternativa é ter SVGs separados para o estado ativo ou importar SVGs como componentes React.
-// Por enquanto, a principal indicação visual de 'ativo' será a borda do círculo.
-// Se seus SVGs usam "currentColor" para fill/stroke, a propriedade color do estilo pai pode funcionar.
 
 const categoryNameStyles = {
   fontSize: '14px',
@@ -49,19 +42,19 @@ const categoryNameStyles = {
 
 // Componente IconDisplay atualizado para usar SVGs
 const IconDisplay = ({ iconName, isActive }) => {
-  const basePath = '/images/icons/'; // Caminho base para os ícones na pasta public
+  const basePath = '/images/icons/';
   let iconSrc = '';
   let altText = iconName;
 
-  // Mapeamento do iconName para o nome do arquivo SVG correspondente
+
   switch (iconName.toLowerCase()) {
     case 'camisetas':
       iconSrc = `${basePath}camiseta.svg`;
       break;
-    case 'calças': // Assumindo que 'iconName' em categoriesData para Calças é 'Calças'
+    case 'calças':
       iconSrc = `${basePath}calca.svg`;
       break;
-    case 'bone': // Assumindo que 'iconName' em categoriesData para Bonés é 'Bonés'
+    case 'bone':
       iconSrc = `${basePath}bone.svg`;
       break;
     case 'headphones':
@@ -75,11 +68,8 @@ const IconDisplay = ({ iconName, isActive }) => {
       return <span style={{ fontSize: '40px', color: isActive ? 'var(--primary)' : 'var(--dark-gray-3)' }}>?</span>;
   }
 
-  // Estilo para tentar aplicar a cor primária se ativo.
-  // Isso funciona melhor se o SVG usar `currentColor`.
+
   const activeSvgStyle = isActive ? { filter: 'invert(22%) sepia(84%) saturate(3436%) hue-rotate(316deg) brightness(85%) contrast(95%)' } : {};
-  // A filter acima tenta converter para a cor primária (#C92071). Pode precisar de ajustes.
-  // Se não quiser usar filter, remova activeSvgStyle e a cor do ícone não mudará.
 
   if (iconSrc) {
     return (
@@ -88,17 +78,12 @@ const IconDisplay = ({ iconName, isActive }) => {
         alt={altText}
         style={{
             ...svgIconStyles,
-            // Se os SVGs forem projetados para herdar cor (usando currentColor),
-            // a linha abaixo pode funcionar para mudar a cor:
-            // color: isActive ? 'var(--primary)' : 'var(--dark-gray-3)',
-            // Caso contrário, a borda do círculo será o principal indicador.
-            // A propriedade filter é uma tentativa de colorir SVGs via CSS:
-            ...(isActive && { filter: 'url(#filter-primary)' }) // requer definir o filtro SVG
+            ...(isActive && { filter: 'url(#filter-primary)' })
         }}
       />
     );
   }
-  // Fallback se iconSrc não for definido (não deve acontecer com o switch acima)
+
   return <span style={{ fontSize: '40px', color: isActive ? 'var(--primary)' : 'var(--dark-gray-3)' }}>?</span>;
 };
 
@@ -106,14 +91,9 @@ const IconDisplay = ({ iconName, isActive }) => {
 function CategoryIcon({ name, iconName, isActive, onClick }) {
   return (
     <>
-      {/* Definição do filtro SVG para tentar colorir os ícones para a cor primária */}
-      {/* Este filtro é uma tentativa, a eficácia depende do SVG original */}
       <svg width="0" height="0" style={{ position: 'absolute' }}>
         <defs>
           <filter id="filter-primary">
-            {/* Matrix para tentar aproximar a cor #C92071 (Rosa Primário) */}
-            {/* Esta é uma aproximação e pode não ser perfeita. */}
-            {/* Converte para tons de cinza, depois colore. */}
             <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0
                                                  0.33 0.33 0.33 0 0
                                                  0.33 0.33 0.33 0 0

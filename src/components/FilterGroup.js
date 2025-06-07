@@ -1,35 +1,33 @@
 import React from 'react';
 
-const filterGroupContainerStyles = { // Renomeado de filterGroupStyles para clareza
-  width: '280px', // Aumentar um pouco a largura
+const filterGroupContainerStyles = { 
+  width: '280px',
   padding: '25px',
-  border: '1px solid var(--light-gray-3)', // Borda um pouco mais clara
+  border: '1px solid var(--light-gray-3)',
   borderRadius: '8px',
   backgroundColor: 'var(--white)',
   height: 'fit-content',
-  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.05)', // Sombra sutil
+  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.05)',
 };
 
-const mainTitleStyle = { // Renomeado de titleStyle
-  fontSize: '20px', // Um pouco maior
-  fontWeight: '700', // Mais bold
+const mainTitleStyle = { 
+  fontSize: '20px', 
+  fontWeight: '700', 
   color: 'var(--dark-gray)',
   marginBottom: '20px',
-  // borderBottom: '1px solid var(--light-gray-2)', // Removida borda inferior do título principal
-  // paddingBottom: '10px',
 };
 
 const filterSectionStyles = {
-  marginBottom: '25px', // Mais espaço entre seções de filtro
-  paddingBottom: '15px', // Espaço antes da borda
-  borderBottom: '1px solid var(--light-gray-3)', // Borda entre seções
+  marginBottom: '25px',
+  paddingBottom: '15px', 
+  borderBottom: '1px solid var(--light-gray-3)',
 };
 
 // Remove a última borda da última seção de filtro
 const lastFilterSectionStyles = {
     ...filterSectionStyles,
     borderBottom: 'none',
-    marginBottom: '15px', // Menos margem se for a última
+    marginBottom: '15px', 
     paddingBottom: '0',
 };
 
@@ -38,29 +36,29 @@ const filterSectionTitleStyles = {
   fontSize: '16px',
   fontWeight: '600',
   color: 'var(--dark-gray-2)',
-  marginBottom: '15px', // Mais espaço abaixo do título da seção
+  marginBottom: '15px', 
 };
 
-const filterOptionLabelStyles = { // Renomeado de filterOptionStyles
-  display: 'flex', // Para alinhar checkbox e texto
+const filterOptionLabelStyles = { 
+  display: 'flex', 
   alignItems: 'center',
-  marginBottom: '12px', // Mais espaço
+  marginBottom: '12px', 
   fontSize: '14px',
   color: 'var(--dark-gray-3)',
   cursor: 'pointer',
 };
 
 const filterInputStyles = {
-  marginRight: '10px', // Mais espaço
+  marginRight: '10px', 
   accentColor: 'var(--primary)',
-  width: '16px', // Tamanho do checkbox/radio
+  width: '16px', 
   height: '16px',
   cursor: 'pointer',
 };
 
 const clearButtonStyles = {
   width: '100%',
-  padding: '12px', // Botão um pouco maior
+  padding: '12px',
   backgroundColor: 'var(--white)',
   color: 'var(--primary)',
   border: '1px solid var(--primary)',
@@ -68,22 +66,16 @@ const clearButtonStyles = {
   cursor: 'pointer',
   fontSize: '14px',
   fontWeight: '600',
-  marginTop: '20px', // Mais espaço acima do botão
+  marginTop: '20px',
   transition: 'background-color 0.2s ease, color 0.2s ease',
 };
 
-// Estilos para o hover do botão (exemplo, pode ser feito com CSS :hover)
-// const clearButtonHoverStyles = {
-//   backgroundColor: 'var(--primary-light)', // Uma variação mais clara do primário
-//   color: 'var(--white)',
-// };
 
 
 function FilterGroup() {
-  // const [isClearButtonHovered, setIsClearButtonHovered] = React.useState(false);
-
-  const brands = ['Adidas', 'Calenciaga', 'K-Swiss', 'Nike', 'Puma']; // Exemplo de marcas
-  const categories = ['Esportivo', 'Esteira', 'Academia', 'Corrida', 'Casual']; // Exemplo de categorias
+ 
+  const brands = ['Adidas', 'Calenciaga', 'K-Swiss', 'Nike', 'Puma']; 
+  const categories = ['Esportivo', 'Esteira', 'Academia', 'Corrida', 'Casual'];
   const genders = ['Masculino', 'Feminino', 'Unissex'];
 
   return (
@@ -117,7 +109,7 @@ function FilterGroup() {
         ))}
       </div>
       
-      <div style={lastFilterSectionStyles}> {/* Usando o estilo para remover a última borda */}
+      <div style={lastFilterSectionStyles}>
         <h4 style={filterSectionTitleStyles}>Estado</h4>
         <label style={filterOptionLabelStyles}>
           <input type="radio" style={filterInputStyles} name="estado" value="novo" /> Novo
@@ -129,8 +121,6 @@ function FilterGroup() {
 
       <button
         style={clearButtonStyles}
-        // onMouseEnter={() => setIsClearButtonHovered(true)}
-        // onMouseLeave={() => setIsClearButtonHovered(false)}
       >
         Limpar filtro
       </button>

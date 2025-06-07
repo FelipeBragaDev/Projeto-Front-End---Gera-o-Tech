@@ -16,15 +16,6 @@ import DetailedSignupPage from './pages/DetailedSignupPage';
 function App() {
   return (
     <Router>
-      {/* Se você quisesse um Header e Footer que persistissem em TODAS as páginas
-          sem precisar importá-los em cada uma, você os colocaria aqui, fora do <Routes>.
-          Exemplo:
-          <Header />
-          <Routes> ... </Routes>
-          <Footer />
-          Mas, como já os temos dentro da HomePage, vamos manter essa estrutura por enquanto,
-          e as novas páginas também importarão Header e Footer.
-      */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductListingPage />} />
@@ -34,11 +25,10 @@ function App() {
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/order-success" element={<OrderSuccessPage />} />
         <Route path="/meus-pedidos" element={<MyOrdersPage />} />
-        <Route path="/login" element={<LoginPage />} />         {/* <<< ADICIONE */}
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/signup-details" element={<DetailedSignupPage />} />
-        {/* Você pode adicionar uma rota curinga para página não encontrada (404) depois */}
-        {/* <Route path="*" element={<NotFoundPage />} /> */}
+        {/* adicionar uma página não encontrada (404) depois */}
       </Routes>
     </Router>
   );

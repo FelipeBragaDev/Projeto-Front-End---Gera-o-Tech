@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import Header from '../components/Header'; // Nosso Header global
-import Footer from '../components/Footer'; // Nosso Footer global
+import Header from '../components/Header';
+import Footer from '../components/Footer'; 
 import { FaHardHat, FaHammer, FaTools, FaRulerCombined, FaPaintRoller, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
-// Estilo para o container geral da página (como em outras páginas)
+// Estilo para o container geral da página
 const pageWrapperStyles = {
   display: 'flex',
   flexDirection: 'column',
@@ -12,86 +12,47 @@ const pageWrapperStyles = {
 
 // Estilo para a área de conteúdo principal que terá o design "Em Construção"
 const mainConstructionContentStyles = {
-  flex: 1, // Para ocupar o espaço entre Header e Footer
-  background: 'linear-gradient(to bottom right, #1e1b4b, #4c1d95)', // from-indigo-900 to-purple-800
+  flex: 1,
+  background: 'linear-gradient(to bottom right, #1e1b4b, #4c1d95)',
   color: 'white',
   fontFamily: "'Inter', sans-serif",
-  padding: '4rem 1rem', // py-16 px-4 (padding interno para o conteúdo "em construção")
+  padding: '4rem 1rem', 
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center', // Centraliza o container interno
+  alignItems: 'center', 
 };
 
 // Container interno para limitar a largura do conteúdo "em construção"
 const constructionInnerContainerStyles = {
-    maxWidth: '1280px', // Mesmo max-width do exemplo HTML
+    maxWidth: '1280px',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
 };
 
-
-// --- Estilos internos da página "Em Construção" (permanecem os mesmos da versão anterior) ---
-const constructionHeaderStyles = { /* ... como antes ... */ };
-const constructionTitleH1Styles = { /* ... como antes ... */ };
-const constructionSubtitleStyles = { /* ... como antes ... */ };
-const constructionIconContainerStyles = { /* ... como antes (lembre-se da animação 'bounce' no index.css) ... */ };
-const progressBarContainerStyles = { /* ... como antes ... */ };
-const progressBarStyle = (progress) => ({ /* ... como antes (animação 'progress' no index.css) ... */ });
-const countdownGridStyles = { /* ... como antes ... */ };
-const countdownBoxStyles = { /* ... como antes ... */ };
-const countdownTimeStyles = { /* ... como antes ... */ };
-const countdownLabelStyles = { /* ... como antes ... */ };
-const newsletterContainerStyles = { /* ... como antes ... */ };
-const newsletterTitleStyles = { /* ... como antes ... */ };
-const newsletterTextStyles = { /* ... como antes ... */ };
-const newsletterFormStyles = { /* ... como antes ... */ };
-const newsletterInputStyles = { /* ... como antes ... */ };
-const newsletterButtonStyles = { /* ... como antes ... */ };
-const constructionFooterStyles = { /* ... como antes ... */ };
-const socialLinksContainerStyles = { /* ... como antes ... */ };
-const socialLinkStyles = { /* ... como antes ... */ };
-
-// COPIE OS OBJETOS DE ESTILO COMPLETOS DA VERSÃO ANTERIOR AQUI PARA GARANTIR QUE ESTEJAM TODOS PRESENTES.
-// Exemplo (apenas alguns para ilustração, você precisa de todos):
-// const constructionHeaderStyles = { textAlign: 'center', marginBottom: '4rem' };
-// const constructionTitleH1Styles = { fontSize: '3.75rem', fontWeight: 'bold', marginBottom: '1rem' };
-// ... e assim por diante para todos os estilos internos.
-
-// Cole aqui todas as definições de estilo que tínhamos para a página de construção:
-// constructionHeaderStyles, constructionTitleH1Styles, constructionSubtitleStyles,
-// constructionIconContainerStyles, progressBarContainerStyles, progressBarStyle,
-// countdownGridStyles, countdownBoxStyles, countdownTimeStyles, countdownLabelStyles,
-// newsletterContainerStyles, newsletterTitleStyles, newsletterTextStyles,
-// newsletterFormStyles, newsletterInputStyles, newsletterButtonStyles,
-// constructionFooterStyles, socialLinksContainerStyles, socialLinkStyles.
-// (Vou omiti-los aqui para não deixar a resposta excessivamente longa,
-// mas eles são os mesmos da nossa última versão da CategoriesPage.js)
-
-// REPETINDO OS ESTILOS INTERNOS COMPLETOS PARA CLAREZA (COPIADOS DA VERSÃO ANTERIOR):
 // Header da página de construção
 const constructionHeaderStyles_full = {
   textAlign: 'center',
-  marginBottom: '4rem', // mb-16
+  marginBottom: '4rem', 
 };
 const constructionTitleH1Styles_full = {
-  fontSize: 'clamp(2.5rem, 6vw, 3.75rem)', // text-4xl to text-6xl
+  fontSize: 'clamp(2.5rem, 6vw, 3.75rem)', 
   fontWeight: 'bold',
-  marginBottom: '1rem', // mb-4
+  marginBottom: '1rem', 
 };
 const constructionSubtitleStyles_full = {
-  fontSize: 'clamp(1.125rem, 4vw, 1.25rem)', // text-lg to text-xl
+  fontSize: 'clamp(1.125rem, 4vw, 1.25rem)',
   opacity: 0.8,
 };
 const constructionIconContainerStyles_full = {
   marginBottom: '3rem',
-  color: '#facc15', // text-yellow-400
+  color: '#facc15', 
   animation: 'bounce 2s infinite',
 };
 const progressBarContainerStyles_full = {
-  width: '80%', // Ajustado para ser um pouco mais responsivo que 50% fixo
-  maxWidth: '600px', // Limite máximo
+  width: '80%', 
+  maxWidth: '600px', 
   backgroundColor: '#374151',
   borderRadius: '9999px',
   height: '1rem',
@@ -107,7 +68,7 @@ const progressBarStyle_full = (progress) => ({
 });
 const countdownGridStyles_full = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', // Mais responsivo
+  gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', 
   gap: '1rem',
   marginBottom: '4rem',
   textAlign: 'center',
@@ -120,7 +81,7 @@ const countdownBoxStyles_full = {
   borderRadius: '0.5rem',
 };
 const countdownTimeStyles_full = {
-  fontSize: 'clamp(1.5rem, 5vw, 1.875rem)', // text-2xl to text-3xl
+  fontSize: 'clamp(1.5rem, 5vw, 1.875rem)', 
   fontWeight: 'bold',
 };
 const countdownLabelStyles_full = {
@@ -128,18 +89,17 @@ const countdownLabelStyles_full = {
   opacity: 0.8,
 };
 const newsletterContainerStyles_full = {
-  backgroundColor: 'rgba(255, 255, 255, 0.05)', // Um pouco mais sutil
-  // backdropFilter: 'blur(8px)', // Se quiser tentar (pode precisar de prefixos ou não funcionar em todos os navegadores)
+  backgroundColor: 'rgba(255, 255, 255, 0.05)', 
   border: '1px solid rgba(255, 255, 255, 0.1)',
   borderRadius: '0.75rem',
   padding: '2rem',
   maxWidth: '42rem',
-  width: 'calc(100% - 2rem)', // Para ter um pequeno padding nas laterais em telas pequenas
+  width: 'calc(100% - 2rem)', 
   boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)',
-  marginBottom: '3rem', // Espaço antes do footer da construção
+  marginBottom: '3rem',
 };
 const newsletterTitleStyles_full = {
-  fontSize: 'clamp(1.25rem, 5vw, 1.5rem)', // text-xl to text-2xl
+  fontSize: 'clamp(1.25rem, 5vw, 1.5rem)',
   fontWeight: 'bold',
   marginBottom: '1rem',
 };
@@ -150,7 +110,7 @@ const newsletterTextStyles_full = {
 };
 const newsletterFormStyles_full = {
   display: 'flex',
-  flexDirection: window.innerWidth < 768 ? 'column' : 'row', // Responsivo
+  flexDirection: window.innerWidth < 768 ? 'column' : 'row',
   gap: '1rem',
 };
 const newsletterInputStyles_full = {
@@ -172,8 +132,8 @@ const newsletterButtonStyles_full = {
   border: 'none',
 };
 const constructionFooterStyles_full = {
-  marginTop: 'auto', // Empurra para o final do mainConstructionContentStyles
-  paddingTop: '2rem', // Espaço acima
+  marginTop: 'auto', 
+  paddingTop: '2rem', 
   textAlign: 'center',
   opacity: 0.7,
   width: '100%',
@@ -181,13 +141,13 @@ const constructionFooterStyles_full = {
 const socialLinksContainerStyles_full = {
   display: 'flex',
   justifyContent: 'center',
-  gap: '1.5rem', // space-x-6
+  gap: '1.5rem', 
   marginTop: '1rem',
 };
 const socialLinkStyles_full = {
   color: 'white',
   transition: 'color 0.2s ease',
-  fontSize: '1.5rem', // Aumentar um pouco os ícones sociais
+  fontSize: '1.5rem', 
 };
 
 
@@ -197,8 +157,8 @@ function CategoriesPage() {
   const [progress, setProgress] = useState(0);
 
   const setupCountdown = useCallback(() => {
-    const launchDate = new Date(2025, 11, 31, 23, 59, 59).getTime(); // Ex: Fim de 2025
-    const startDate = new Date(2025, 0, 1).getTime(); // Ex: Início de 2025 para cálculo do progresso
+    const launchDate = new Date(2025, 11, 31, 23, 59, 59).getTime();
+    const startDate = new Date(2025, 0, 1).getTime(); 
 
     const update = () => {
       const now = new Date().getTime();
@@ -223,7 +183,7 @@ function CategoriesPage() {
         const elapsedSinceStart = now - startDate;
         setProgress(Math.min(100, Math.max(0, Math.floor((elapsedSinceStart / totalDuration) * 100))));
       } else {
-        setProgress(0); // Evita progresso negativo se startDate for depois de launchDate
+        setProgress(0);
       }
     };
     
@@ -275,16 +235,16 @@ function CategoriesPage() {
 
   return (
     <div style={pageWrapperStyles}>
-      <Header /> {/* SEU HEADER GLOBAL */}
+      <Header />
       <main style={mainConstructionContentStyles}>
-        <div style={constructionInnerContainerStyles}> {/* Container interno para centralizar e limitar largura */}
+        <div style={constructionInnerContainerStyles}>
           <header style={constructionHeaderStyles_full}>
             <h1 style={constructionTitleH1Styles_full}>Categorias</h1>
             <p style={constructionSubtitleStyles_full}>Estamos preparando algo incrível para você!</p>
           </header>
 
           <div style={constructionIconContainerStyles_full}>
-            <FaHardHat style={{ fontSize: '5rem' }} /> {/* Ajuste no tamanho do ícone */}
+            <FaHardHat style={{ fontSize: '5rem' }} />
           </div>
 
           <div style={progressBarContainerStyles_full}>
@@ -301,12 +261,12 @@ function CategoriesPage() {
           </div>
           
           {showFloatingElements && (
-            <div style={{ position: 'absolute', width: '100%', height: '100%', top:0, left:0, overflow:'hidden', pointerEvents:'none', zIndex:0 }}> {/* Container para elementos flutuantes, precisa de ajuste de contexto de posicionamento */}
+            <div style={{ position: 'absolute', width: '100%', height: '100%', top:0, left:0, overflow:'hidden', pointerEvents:'none', zIndex:0 }}>
               {floatingElements.map((el, idx) => (
                 <div
                   key={idx}
                   style={{
-                    position: 'absolute', // Relativo ao 'mainConstructionContentStyles' ou um wrapper com position:relative
+                    position: 'absolute', 
                     top: el.top, left: el.left, right: el.right, bottom: el.bottom,
                     animation: `float 6s ease-in-out ${el.delay} infinite`,
                     color: el.color, fontSize: '2rem',
@@ -341,7 +301,7 @@ function CategoriesPage() {
           </footer>
         </div>
       </main>
-      <Footer /> {/* SEU FOOTER GLOBAL */}
+      <Footer />
     </div>
   );
 }

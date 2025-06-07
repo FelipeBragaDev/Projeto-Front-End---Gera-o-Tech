@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 import { Link, useNavigate } from 'react-router-dom';
-import { mockProducts } from '../data/mockData'; // Certifique-se que este caminho está correto
+import { mockProducts } from '../data/mockData'; 
 
 const relatedSectionStyles = {
   marginTop: '60px',
@@ -32,11 +32,6 @@ const viewAllLinkStyles = {
 const productsGridStyles = {
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fill, minmax(270px, 1fr))', 
-  // Para forçar 4 colunas em telas maiores, você pode usar media queries ou ajustar minmax.
-  // Exemplo para desktop com 4 colunas mais fixas:
-  // '@media (min-width: 1024px)': { gridTemplateColumns: 'repeat(4, 1fr)' }
-  // (Mas isso exigiria uma biblioteca de CSS-in-JS que suporte media queries, ou classes CSS)
-  // Por agora, 'auto-fill' com minmax é uma boa abordagem responsiva.
   gap: '20px',
 };
 
@@ -44,18 +39,17 @@ const productsGridStyles = {
 function RelatedProducts({ currentProductId, currentProductCategory }) {
   const navigate = useNavigate();
 
-  // Lógica para selecionar produtos relacionados
   let related = [];
   const maxRelatedProducts = 4;
 
-  // 1. Tenta pegar produtos da mesma categoria
+ 
   if (currentProductCategory) {
     related = mockProducts.filter(
       product => product.category === currentProductCategory && product.id !== currentProductId
     );
   }
 
-  // 2. Se não tiver 4, tenta pegar de outras categorias
+
   if (related.length < maxRelatedProducts) {
     const existingIds = new Set(related.map(p => p.id));
     if (currentProductId) {
@@ -64,25 +58,20 @@ function RelatedProducts({ currentProductId, currentProductCategory }) {
 
     const otherProducts = mockProducts.filter(p => !existingIds.has(p.id));
     
-    // Embaralha os outros produtos para variedade (opcional, mas bom)
+
     const shuffledOtherProducts = [...otherProducts].sort(() => 0.5 - Math.random());
     
     related.push(...shuffledOtherProducts.slice(0, maxRelatedProducts - related.length));
   }
 
-  // 3. Garante que temos no máximo 4 produtos
+
   related = related.slice(0, maxRelatedProducts);
 
-  // ---- LOGS PARA DEPURAR (Pode remover depois) ----
-  console.log("--- RelatedProducts Component DEBUG ---");
-  console.log("Current Product ID:", currentProductId);
-  console.log("Current Product Category:", currentProductCategory);
-  console.log("Final selected related products:", related);
-  // ---- FIM DOS LOGS ----
+
 
   if (related.length === 0) {
     console.log("Nenhum produto para mostrar em 'Relacionados'.");
-    return null; // Não renderiza a seção se, mesmo após as tentativas, não encontrar nada.
+    return null; 
   }
 
   const handleProductClick = (productId) => {
@@ -100,7 +89,7 @@ function RelatedProducts({ currentProductId, currentProductCategory }) {
       </div>
       <div style={productsGridStyles}>
         {related.map((product) => {
-          // Verificação rápida para imagem (embora ProductCard já tenha um fallback)
+
           if (!product.imageUrl) {
             console.warn(`Produto relacionado "${product.name}" (ID: ${product.id}) está sem imageUrl.`);
           }

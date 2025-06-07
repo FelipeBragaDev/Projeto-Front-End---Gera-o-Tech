@@ -10,27 +10,25 @@ import { mockProducts } from '../data/mockData';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 
-// No futuro, isso viria de uma API/contexto/estado global
-
 const pageStyles = {
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
-  backgroundColor: 'var(--white)', // Fundo geral branco
+  backgroundColor: 'var(--white)', 
 };
 
 const mainContentContainerStyles = {
   flex: 1,
-  maxWidth: '1200px', // Ajustado para o design
+  maxWidth: '1200px',
   width: '90%',
-  margin: '20px auto', // Reduzir margem superior
-  padding: '0', // Remover padding aqui, será por seção
+  margin: '20px auto', 
+  padding: '0',
   boxSizing: 'border-box',
 };
 
 // Estilos para Breadcrumbs
 const breadcrumbsContainerStyles = {
-  padding: '15px 0', // Padding vertical para os breadcrumbs
+  padding: '15px 0',
   marginBottom: '25px',
   fontSize: '14px',
   color: 'var(--dark-gray-3)',
@@ -49,29 +47,29 @@ const breadcrumbSeparatorStyles = {
 const productViewLayoutStyles = {
   display: 'flex',
   flexWrap: 'wrap',
-  gap: '30px', // Espaço reduzido entre colunas
+  gap: '30px', 
   alignItems: 'flex-start',
 };
 
 // Estilos para a Galeria de Imagens (Coluna da Esquerda)
 const imageGalleryStyles = {
-  flex: '1 1 calc(55% - 15px)', // Ocupa mais espaço, ajustado pelo gap
-  position: 'relative', // Para as setas de navegação
+  flex: '1 1 calc(55% - 15px)', 
+  position: 'relative',
 };
 
-const mainImageContainerStyles = { // Novo container para main image e setas
+const mainImageContainerStyles = {
     position: 'relative',
     border: '1px solid var(--light-gray-3)',
     borderRadius: '8px',
-    overflow: 'hidden', // Para arredondar a imagem se ela for maior
-    backgroundColor: 'var(--white)', // Fundo para a imagem principal
+    overflow: 'hidden', 
+    backgroundColor: 'var(--white)', 
 };
 
 const mainImageStyles = {
   width: '100%',
-  maxHeight: '550px', // Ajustar altura máxima
+  maxHeight: '550px', 
   objectFit: 'contain',
-  display: 'block', // Para remover espaço extra abaixo da imagem
+  display: 'block', 
 };
 
 const galleryArrowStyles = {
@@ -105,19 +103,19 @@ const nextArrowStyles = {
 const thumbnailContainerStyles = {
   display: 'flex',
   gap: '10px',
-  justifyContent: 'flex-start', // Alinhar à esquerda
-  flexWrap: 'nowrap', // Para não quebrar, assumindo que cabem ou terão scroll
+  justifyContent: 'flex-start', 
+  flexWrap: 'nowrap', 
   marginTop: '15px',
-  overflowX: 'auto', // Permite scroll horizontal se muitas miniaturas
-  paddingBottom: '5px', // Espaço para a barra de scroll não colar
+  overflowX: 'auto', 
+  paddingBottom: '5px',
 };
 
 const thumbnailStyles = {
-  width: '80px', // Tamanho das miniaturas
+  width: '80px',
   height: '80px',
   objectFit: 'cover',
-  border: '2px solid var(--light-gray-3)', // Borda mais sutil
-  borderRadius: '6px', // Bordas mais arredondadas
+  border: '2px solid var(--light-gray-3)',
+  borderRadius: '6px',
   cursor: 'pointer',
   opacity: 0.7,
   transition: 'opacity 0.2s ease, border-color 0.2s ease',
@@ -126,15 +124,14 @@ const thumbnailStyles = {
 const thumbnailActiveStyles = {
   ...thumbnailStyles,
   opacity: 1,
-  borderColor: 'var(--primary)', // Destaque na miniatura ativa
+  borderColor: 'var(--primary)',
 };
 
 // Estilos para a Coluna de Informações (Direita)
 const productInfoColumnStyles = {
-  flex: '1 1 calc(45% - 15px)', // Ocupa menos espaço, ajustado pelo gap
+  flex: '1 1 calc(45% - 15px)', 
   display: 'flex',
   flexDirection: 'column',
-  // gap: '20px', // O espaçamento será dado pelas margens dos componentes internos
 };
 
 function ProductViewPage() {
@@ -151,9 +148,9 @@ function ProductViewPage() {
       setCurrentImageIndex(0);
     } else if (foundProduct) {
       setSelectedImage(foundProduct.imageUrl);
-      setCurrentImageIndex(0); // Assumindo que imageUrl é a primeira e única
+      setCurrentImageIndex(0); 
     }
-    window.scrollTo(0,0); // Rola para o topo ao carregar a página do produto
+    window.scrollTo(0,0); 
   }, [productId]);
 
   const productImages = product?.images || (product?.imageUrl ? [product.imageUrl] : []).filter(Boolean);
@@ -195,7 +192,7 @@ function ProductViewPage() {
           {/* Idealmente, a categoria viria do produto e seria um link */}
           <span style={breadcrumbSeparatorStyles}>{product.category}</span>
           <span style={breadcrumbSeparatorStyles}>/</span>
-          <span>{product.name}</span> {/* Nome do produto atual (não linkado) */}
+          <span>{product.name}</span>
         </nav>
 
         <div style={productViewLayoutStyles}>
@@ -236,7 +233,7 @@ function ProductViewPage() {
             <BuyBox product={product} />
           </section>
         </div>
-        {/* Futuramente: Seção de Produtos Relacionados */}
+
         <RelatedProducts 
           currentProductId={product.id} 
           currentProductCategory={product.category} 

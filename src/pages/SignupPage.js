@@ -14,14 +14,12 @@ const pageWrapperStyles = {
 
 // Estilo para a área de conteúdo principal (onde ficará o gradiente e o form/imagem)
 const mainContentAreaStyles = {
-  flex: 1, // Ocupa o espaço entre Header e Footer
+  flex: 1, 
   display: 'flex',
-  alignItems: 'center',    // Centraliza o layoutContainerStyles verticalmente
-  justifyContent: 'center', // Centraliza o layoutContainerStyles horizontalmente
-  padding: '40px 20px',     // Padding para a área principal
-  background: 'linear-gradient(to bottom right, #E9E4F0, #D3CCE3)', // Gradiente lilás/roxo claro como no exemplo
-  // Se preferir o gradiente mais escuro do exemplo HTML: 'linear-gradient(to bottom right, #4A00E0, #8E2DE2)'
-  // Ou o var(--secondary) que usamos: 'var(--secondary)'
+  alignItems: 'center',    
+  justifyContent: 'center', 
+  padding: '40px 20px',  
+  background: 'linear-gradient(to bottom right, #E9E4F0, #D3CCE3)', 
   boxSizing: 'border-box',
   fontFamily: "'Inter', sans-serif",
 };
@@ -33,7 +31,7 @@ const pageContainerStyles = {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  background: 'linear-gradient(135deg, #B5B6F2, #EFEFFF)', // indigo-900 to purple-700 (Tailwind shades)
+  background: 'linear-gradient(135deg, #B5B6F2, #EFEFFF)',
   backgroundColor: 'var(--secondary)',
   padding: '20px',
   boxSizing: 'border-box',
@@ -46,14 +44,14 @@ const logoTopLeftStyles = {
     left: '40px',
 };
 
-const layoutContainerStyles = { // Container para form e imagem
+const layoutContainerStyles = { 
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center', // Centraliza o par form+imagem
+    justifyContent: 'center', 
     width: '100%',
-    maxWidth: '1000px', // Ajustar a largura máxima do conteúdo login+imagem
-    gap: '50px', // Espaço entre form e imagem
-    flexWrap: 'wrap', // Para telas menores
+    maxWidth: '1000px', 
+    gap: '50px', 
+    flexWrap: 'wrap', 
 };
 
 const formContainerStyles = {
@@ -126,14 +124,14 @@ const socialIconsContainerStyles = {
 
 const socialIconStyles = {
   fontSize: '24px',
-  color: 'var(--dark-gray-2)', // Ou cores específicas das marcas
+  color: 'var(--dark-gray-2)', 
   cursor: 'pointer',
   transition: 'color 0.2s ease',
 };
 
 const imageContainerStyles = {
-  maxWidth: '400px', // Tamanho da imagem do tênis
-  display: 'block', // Esconder em telas muito pequenas se necessário
+  maxWidth: '400px',
+  display: 'block',
 };
 
 const sneakerImageStyles = {
@@ -168,21 +166,11 @@ function SignupPage() {
                 </p>
 
                 <form onSubmit={handleSignup}>
-                    {/* A imagem de referência só mostra email, mas um signup real precisaria de mais */}
-                    {/*<div style={inputGroupStyles}>
-                    <label htmlFor="name" style={labelStyles}>Nome Completo *</label>
-                    <input type="text" id="name" style={inputStyles} placeholder="Insira seu nome completo" required />
-                    </div>*/}
                     <div style={inputGroupStyles}>
                     <label htmlFor="email" style={labelStyles}>Email *</label>
                     <input type="email" id="email" style={inputStyles} placeholder="Insira seu email" required />
                     </div>
-                    {/*<div style={inputGroupStyles}>
-                    <label htmlFor="password" style={labelStyles}>Senha *</label>
-                    <input type="password" id="password" style={inputStyles} placeholder="Crie uma senha" required />
-                    </div>*/}
-                    {/* Poderia adicionar "Confirmar Senha" aqui */}
-                    <div style={{marginTop: '30px'}}> {/* Espaço antes do botão */}
+                    <div style={{marginTop: '30px'}}>
                         <button type="submit" style={primaryButtonStyles}>
                         Criar Conta
                         </button>

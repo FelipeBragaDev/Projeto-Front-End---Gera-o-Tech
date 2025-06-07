@@ -4,22 +4,22 @@ import CategoryIcon from './CategoryIcon';
 // Estilos para a seção
 const sectionStyles = {
   padding: '30px 20px',
-  backgroundColor: 'var(--light-gray-3)', // Fundo da seção (F5F5F5)
+  backgroundColor: 'var(--light-gray-3)',
 };
 
 const sectionTitleStyles = {
   fontSize: '28px',
   fontWeight: 'bold',
   color: 'var(--dark-gray-2)',
-  textAlign: 'center', // Título centralizado como na imagem
+  textAlign: 'center',
   marginBottom: '40px',
 };
 
 const iconsContainerStyles = {
   display: 'flex',
-  justifyContent: 'center', // Centraliza os ícones
+  justifyContent: 'center',
   flexWrap: 'wrap',
-  gap: '20px', // Espaço entre os ícones
+  gap: '20px',
 };
 
 const categoriesData = [
@@ -31,17 +31,16 @@ const categoriesData = [
 ];
 
 function CategoryNavigationSection() {
-  const [activeCategory, setActiveCategory] = useState('cat1'); // 'cat1' (Camisetas) como ativo por padrão
+  const [activeCategory, setActiveCategory] = useState('cat1');
 
   const handleCategoryClick = (categoryId) => {
     setActiveCategory(categoryId);
-    // Aqui você poderia adicionar lógica para filtrar produtos ou navegar
+
     console.log("Categoria selecionada:", categoryId);
   };
 
   return (
     <section style={sectionStyles}>
-      {/* O título na imagem de detalhe é "Coleções em destaque", mas pode ser "Categorias" */}
       <h2 style={sectionTitleStyles}>Coleções em destaque</h2>
       <div style={iconsContainerStyles}>
         {categoriesData.map((category) => (

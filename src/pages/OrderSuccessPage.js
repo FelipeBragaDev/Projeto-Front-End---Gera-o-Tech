@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { useNavigate, Link } from 'react-router-dom'; // Link para o botão Home, useNavigate se precisar para outros
-import { FaPrint } from 'react-icons/fa'; // Exemplo de ícone para Imprimir
+import { useNavigate, Link } from 'react-router-dom';
+import { FaPrint } from 'react-icons/fa'; 
 
-// Mock data para a página de sucesso (no app real, viria do pedido processado)
+// Mock data para a página de sucesso
 const mockOrderDetails = {
   personalInfo: {
     name: 'Francisco Antonio Pereira',
-    cpf: '123.456.789-10', // Lembre-se de mascarar ou não exibir dados sensíveis reais
+    cpf: '123.456.789-10', 
     email: 'francisco@gmail.com',
     celular: '(85) 5555-5555',
   },
@@ -16,18 +16,18 @@ const mockOrderDetails = {
     address: 'Rua João Pessoa, 333',
     neighborhood: 'Centro',
     cityState: 'Fortaleza, Ceará',
-    cep: '433-8800', // Formato CEP pode variar
+    cep: '433-8800', 
   },
   paymentInfo: {
     cardHolder: 'FRANCISCO A P',
-    cardLastDigits: '************2020', // Mostrar apenas os últimos dígitos
+    cardLastDigits: '************2020',
   },
   orderSummary: {
     items: [
       {
         id: 'prod1',
         name: 'Tênis Nike Revolution 6 Next Nature Masculino',
-        imageUrl: '/images/products/nike-revolution-thumb1.png', // Imagem do produto
+        imageUrl: '/images/products/nike-revolution-thumb1.png', 
       },
     ],
     total: 219.00,
@@ -41,23 +41,23 @@ const pageStyles = {
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
-  backgroundColor: 'var(--light-gray-3)', // Fundo geral da página
+  backgroundColor: 'var(--light-gray-3)',
 };
 
 const mainContentContainerStyles = {
   flex: 1,
-  maxWidth: '800px', // Container um pouco mais estreito para esta página
+  maxWidth: '800px',
   width: '90%',
   margin: '40px auto',
-  padding: '30px 40px', // Padding interno
-  backgroundColor: 'var(--white)', // Caixa de conteúdo branca
+  padding: '30px 40px',
+  backgroundColor: 'var(--white)',
   borderRadius: '8px',
   boxShadow: '0px 6px 20px rgba(0, 0, 0, 0.07)',
-  textAlign: 'center', // Centralizar o conteúdo superior (ícone, título)
+  textAlign: 'center',
 };
 
 const successIconStyles = {
-  fontSize: '60px', // Tamanho do ícone/emoji
+  fontSize: '60px', 
   marginBottom: '15px',
 };
 
@@ -69,11 +69,12 @@ const successTitleStyles = {
 };
 
 const infoSectionStyles = {
-  textAlign: 'left', // Alinhar texto das seções à esquerda
+  textAlign: 'left', 
   marginBottom: '25px',
   paddingBottom: '25px',
   borderBottom: '1px solid var(--light-gray-3)',
 };
+
 // Para a última seção não ter borda inferior
 const lastInfoSectionStyles = { ...infoSectionStyles, borderBottom: 'none', marginBottom: '10px', paddingBottom: '10px' };
 
@@ -93,7 +94,7 @@ const infoRowStyles = {
 
 const infoLabelStyles = {
   color: 'var(--light-gray)',
-  minWidth: '100px', // Para alinhar os valores
+  minWidth: '100px', 
   marginRight: '10px',
 };
 
@@ -107,10 +108,10 @@ const orderItemStyles = {
     display: 'flex',
     alignItems: 'center',
     gap: '15px',
-    padding: '10px 0', // Menos padding vertical
+    padding: '10px 0', 
 };
 const orderItemImageStyles = {
-    width: '60px', // Imagem menor no resumo
+    width: '60px', 
     height: '60px',
     objectFit: 'contain',
     borderRadius: '4px',
@@ -126,7 +127,7 @@ const totalAmountStyles = {
     fontSize: '22px',
     fontWeight: 'bold',
     color: 'var(--dark-gray)',
-    marginTop: '5px', // Espaço do item acima
+    marginTop: '5px',
 };
 const totalInstallmentStyles = {
     fontSize: '13px',
@@ -137,12 +138,12 @@ const totalInstallmentStyles = {
 const buttonsContainerStyles = {
   marginTop: '40px',
   display: 'flex',
-  flexDirection: 'column', // Botões empilhados
-  alignItems: 'center', // Centraliza os botões
+  flexDirection: 'column', 
+  alignItems: 'center', 
   gap: '15px',
 };
 
-const secondaryButtonStyles = { // Para "Imprimir Recibo"
+const secondaryButtonStyles = { 
   padding: '10px 25px',
   backgroundColor: 'var(--light-gray-2)',
   color: 'var(--dark-gray-2)',
@@ -155,9 +156,9 @@ const secondaryButtonStyles = { // Para "Imprimir Recibo"
   transition: 'background-color 0.2s ease',
 };
 
-const primaryButtonStyles = { // Para "Voltar para Home"
+const primaryButtonStyles = { 
   padding: '12px 30px',
-  backgroundColor: 'var(--warning)', // Laranja
+  backgroundColor: 'var(--warning)',
   color: 'var(--white)',
   border: 'none',
   borderRadius: '4px',
@@ -167,20 +168,20 @@ const primaryButtonStyles = { // Para "Voltar para Home"
   cursor: 'pointer',
   minWidth: '200px',
   textAlign: 'center',
-  textDecoration: 'none', // Para o Link
-  display: 'inline-block', // Para o Link
+  textDecoration: 'none', 
+  display: 'inline-block', 
   transition: 'background-color 0.2s ease',
 };
 
 
 function OrderSuccessPage() {
   const navigate = useNavigate();
-  const order = mockOrderDetails; // Usando dados mockados
+  const order = mockOrderDetails; 
 
   const handlePrintReceipt = () => {
     console.log("Simulando impressão de recibo...");
     alert("Funcionalidade de impressão de recibo ainda não implementada.");
-    window.print(); // função de impressão do navegador
+    window.print(); 
   };
 
   return (
@@ -216,7 +217,7 @@ function OrderSuccessPage() {
         </section>
 
         {/* Resumo da compra */}
-        <section style={lastInfoSectionStyles}> {/* Usando o estilo para não ter borda inferior */}
+        <section style={lastInfoSectionStyles}>
           <h2 style={sectionTitleStyles}>Resumo da compra</h2>
           {order.orderSummary.items.map(item => (
             <div key={item.id} style={orderItemStyles}>
@@ -224,7 +225,7 @@ function OrderSuccessPage() {
               <span style={orderItemNameStyles}>{item.name}</span>
             </div>
           ))}
-          <div style={{textAlign: 'right', marginTop: '15px'}}> {/* Alinhamento do total */}
+          <div style={{textAlign: 'right', marginTop: '15px'}}>
             <span style={infoLabelStyles}>Total</span>
             <div style={totalAmountStyles}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(order.orderSummary.total)}</div>
             <div style={totalInstallmentStyles}>{order.orderSummary.installments}</div>

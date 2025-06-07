@@ -11,16 +11,14 @@ const pageWrapperStyles = {
   minHeight: '100vh',
 };
 
-// Estilo para a área de conteúdo principal (onde ficará o gradiente e o form/imagem)
+// Estilo para a área de conteúdo principal
 const mainContentAreaStyles = {
-  flex: 1, // Ocupa o espaço entre Header e Footer
+  flex: 1,
   display: 'flex',
-  alignItems: 'center',    // Centraliza o layoutContainerStyles verticalmente
-  justifyContent: 'center', // Centraliza o layoutContainerStyles horizontalmente
-  padding: '40px 20px',     // Padding para a área principal
-  background: 'linear-gradient(to bottom right, #E9E4F0, #D3CCE3)', // Gradiente lilás/roxo claro como no exemplo
-  // Se preferir o gradiente mais escuro do exemplo HTML: 'linear-gradient(to bottom right, #4A00E0, #8E2DE2)'
-  // Ou o var(--secondary) que usamos: 'var(--secondary)'
+  alignItems: 'center',   
+  justifyContent: 'center', 
+  padding: '40px 20px', 
+  background: 'linear-gradient(to bottom right, #E9E4F0, #D3CCE3)',
   boxSizing: 'border-box',
   fontFamily: "'Inter', sans-serif",
 };
@@ -29,9 +27,9 @@ const mainContentAreaStyles = {
 const pageContainerStyles = {
   minHeight: '100vh',
   display: 'flex',
-  flexDirection: 'column', // Para posicionar o logo acima do conteúdo principal
-  alignItems: 'center', // Centraliza o conteúdo principal horizontalmente
-  justifyContent: 'center', // Centraliza o conteúdo principal verticalmente (se o conteúdo for menor que a tela)
+  flexDirection: 'column', 
+  alignItems: 'center', 
+  justifyContent: 'center',
   background: 'linear-gradient(135deg, #B5B6F2, #EFEFFF)',
   backgroundColor: 'var(--secondary)',
   padding: '20px',
@@ -45,14 +43,14 @@ const logoTopLeftStyles = {
     left: '40px',
 };
 
-const layoutContainerStyles = { // Container para form e imagem
+const layoutContainerStyles = {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center', // Centraliza o par form+imagem
+    justifyContent: 'center', 
     width: '100%',
-    maxWidth: '1000px', // Ajustar a largura máxima do conteúdo login+imagem
-    gap: '50px', // Espaço entre form e imagem
-    flexWrap: 'wrap', // Para telas menores
+    maxWidth: '1000px', 
+    gap: '50px', 
+    flexWrap: 'wrap',
 };
 
 const formContainerStyles = {
@@ -61,9 +59,9 @@ const formContainerStyles = {
   borderRadius: '12px',
   boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.1)',
   width: '100%',
-  maxWidth: '450px', // Largura do formulário
+  maxWidth: '450px',
   textAlign: 'left',
-  order: 1, // Para o form vir primeiro em telas menores se houver wrap
+  order: 1, 
 };
 
 const formTitleStyles = {
@@ -79,7 +77,7 @@ const subLinkStyles = {
   marginBottom: '30px',
 };
 
-const subLinkActionStyles = { // Para "registre-se aqui"
+const subLinkActionStyles = { 
   color: 'var(--primary)',
   fontWeight: '500',
   textDecoration: 'underline',
@@ -136,17 +134,17 @@ const socialIconsContainerStyles = {
 
 const socialIconStyles = {
   fontSize: '24px',
-  color: 'var(--dark-gray-2)', // Ou cores específicas das marcas
+  color: 'var(--dark-gray-2)', 
   cursor: 'pointer',
   transition: 'color 0.2s ease',
 };
 
 // Imagem à Direita
 const imageContainerStyles = {
-  maxWidth: '400px', // Tamanho da imagem do tênis
-  width: '100%',     // Para ser responsivo
-  order: 2,          // Para a imagem vir depois em telas menores
-  display: window.innerWidth < 768 ? 'none' : 'block', // Ocultar imagem em telas muito pequenas (exemplo)
+  maxWidth: '400px', 
+  width: '100%',     
+  order: 2,         
+  display: window.innerWidth < 768 ? 'none' : 'block', 
 };
 
 const sneakerImageStyles = {
@@ -166,7 +164,7 @@ function LoginPage() {
     navigate('/');
   };
 
-  // Lógica para esconder imagem em telas menores (exemplo simples)
+  // Lógica para esconder imagem em telas menores
   const [showSneakerImage, setShowSneakerImage] = useState(window.innerWidth >= 768);
   React.useEffect(() => {
     const handleResize = () => setShowSneakerImage(window.innerWidth >= 768);

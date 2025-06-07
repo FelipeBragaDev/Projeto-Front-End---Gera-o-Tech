@@ -2,37 +2,37 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const summaryContainerStyles = {
-  backgroundColor: 'var(--light-gray-3)', // Fundo cinza claro como na imagem
+  backgroundColor: 'var(--light-gray-3)',
   padding: '25px',
   borderRadius: '8px',
-  width: '100%', // Ocupa a largura da coluna definida em CartPage
+  width: '100%', 
 };
 
 const titleStyles = {
-  fontSize: '18px', // Menor que o título da página
+  fontSize: '18px',
   fontWeight: 'bold',
   color: 'var(--dark-gray)',
   marginBottom: '20px',
   paddingBottom: '15px',
-  borderBottom: '1px solid var(--light-gray-2)', // Divisor mais sutil
-  textTransform: 'uppercase', // "RESUMO" em maiúsculas
+  borderBottom: '1px solid var(--light-gray-2)',
+  textTransform: 'uppercase', 
 };
 
 const rowStyles = {
   display: 'flex',
   justifyContent: 'space-between',
   marginBottom: '12px',
-  fontSize: '14px', // Texto um pouco menor
+  fontSize: '14px', 
   color: 'var(--dark-gray-2)',
 };
 
-const discountValueStyles = { // Para o valor do desconto
-    color: 'var(--error)', // Cor vermelha para o desconto, como na imagem
+const discountValueStyles = { 
+    color: 'var(--error)', 
 };
 
 const totalRowStyles = {
   ...rowStyles,
-  fontSize: '18px', // Total um pouco maior
+  fontSize: '18px', 
   fontWeight: 'bold',
   color: 'var(--dark-gray)',
   marginTop: '15px',
@@ -41,7 +41,7 @@ const totalRowStyles = {
 };
 
 const installmentTextStyles = {
-  fontSize: '12px', // Menor
+  fontSize: '12px', 
   color: 'var(--dark-gray-2)',
   textAlign: 'right',
   marginBottom: '20px',
@@ -49,12 +49,12 @@ const installmentTextStyles = {
 
 const continueButtonStyles = {
   width: '100%',
-  padding: '14px', // Ajustar padding
-  backgroundColor: 'var(--warning)', // Laranja
+  padding: '14px', 
+  backgroundColor: 'var(--warning)', 
   color: 'var(--white)',
   border: 'none',
   borderRadius: '4px',
-  fontSize: '15px', // Ajustar tamanho
+  fontSize: '15px', 
   fontWeight: 'bold',
   textTransform: 'uppercase',
   cursor: 'pointer',
@@ -75,9 +75,9 @@ function OrderSummary({ cartItems, showActionButton = true }) {
   const finalTotal = Math.max(0, totalBeforeDiscount - desconto);
 
   return (
-    <aside style={summaryContainerStyles}> {/* Supondo que summaryContainerStyles está definido */}
-      <h2 style={titleStyles}>RESUMO</h2> {/* Supondo que titleStyles está definido */}
-      <div style={rowStyles}> {/* Supondo que rowStyles está definido */}
+    <aside style={summaryContainerStyles}> 
+      <h2 style={titleStyles}>RESUMO</h2> 
+      <div style={rowStyles}> 
         <span>Subtotal:</span>
         <span>{formatCurrency(subtotal)}</span>
       </div>
@@ -88,20 +88,19 @@ function OrderSummary({ cartItems, showActionButton = true }) {
       {desconto > 0 && (
         <div style={rowStyles}>
           <span>Desconto:</span>
-          <span style={discountValueStyles}>- {formatCurrency(desconto)}</span> {/* Supondo que discountValueStyles está definido */}
+          <span style={discountValueStyles}>- {formatCurrency(desconto)}</span>
         </div>
       )}
-      <div style={totalRowStyles}> {/* Supondo que totalRowStyles está definido */}
+      <div style={totalRowStyles}>
         <span>Total:</span>
         <span>{formatCurrency(finalTotal)}</span>
       </div>
       {finalTotal > 0 && (
-        <p style={installmentTextStyles}> {/* Supondo que installmentTextStyles está definido */}
+        <p style={installmentTextStyles}>
           ou 10x de {formatCurrency(finalTotal / 10)} sem juros
         </p>
       )}
 
-      {/* Renderiza o botão condicionalmente */}
       {showActionButton && (
         <Link to="/checkout" style={continueButtonStyles}>
           Continuar

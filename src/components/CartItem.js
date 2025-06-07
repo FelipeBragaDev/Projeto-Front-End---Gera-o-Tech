@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-// Se quiser usar ícones para os botões de quantidade ou remover:
-// import { FaPlus, FaMinus, FaTrashAlt } from 'react-icons/fa';
 
 const cartItemStyles = {
   display: 'flex',
-  gap: '20px', // Espaço entre imagem e o resto
+  gap: '20px',
   padding: '20px 0',
   borderBottom: '1px solid var(--light-gray-3)',
-  alignItems: 'flex-start', // Alinha itens no topo
+  alignItems: 'flex-start',
 };
 
 const imageStyles = {
@@ -17,10 +15,10 @@ const imageStyles = {
   borderRadius: '4px',
   border: '1px solid var(--light-gray-3)',
   backgroundColor: 'var(--white)',
-  alignSelf: 'center', // Centraliza a imagem verticalmente se os detalhes forem altos
+  alignSelf: 'center',
 };
 
-const itemInfoContainerStyles = { // Container para detalhes do produto e o link de remover
+const itemInfoContainerStyles = { 
   flexGrow: 1,
   display: 'flex',
   flexDirection: 'column',
@@ -42,15 +40,15 @@ const attributesStyles = {
 
 const removeLinkStyles = {
   fontSize: '13px',
-  color: 'var(--error)', // Cor de erro para remover
+  color: 'var(--error)',
   cursor: 'pointer',
-  textDecoration: 'none', // Remover sublinhado padrão
+  textDecoration: 'none',
   background: 'none',
   border: 'none',
   padding: '0',
   textAlign: 'left',
-  alignSelf: 'flex-start', // Alinha à esquerda
-  marginTop: 'auto', // Empurra para baixo se houver espaço
+  alignSelf: 'flex-start',
+  marginTop: 'auto',
 };
 const removeLinkHoverStyles = {
     textDecoration: 'underline',
@@ -60,18 +58,18 @@ const removeLinkHoverStyles = {
 // Container para as colunas de Quantidade, Unitário, Total
 const itemInteractiveColumnsStyles = {
     display: 'flex',
-    alignItems: 'center', // Alinha verticalmente os controles de quantidade e os textos de preço
-    gap: '15px', // Espaço entre as colunas Quantidade, Unitário, Total
-    marginLeft: 'auto', // Empurra estas colunas para a direita
+    alignItems: 'center',
+    gap: '15px',
+    marginLeft: 'auto',
 };
 
 const columnSectionStyles = {
-  minWidth: '90px', // Largura mínima para cada coluna de preço/qtd
-  textAlign: 'right', // Alinhamento padrão para estas colunas
+  minWidth: '90px',
+  textAlign: 'right',
 };
 
 const labelStyles = {
-  fontSize: '11px', // Menor
+  fontSize: '11px',
   color: 'var(--light-gray)',
   display: 'block',
   marginBottom: '5px',
@@ -80,17 +78,17 @@ const labelStyles = {
 };
 
 const valueStyles = {
-  fontSize: '15px', // Um pouco menor
+  fontSize: '15px',
   fontWeight: '600',
   color: 'var(--dark-gray)',
 };
 
-// Estilos para o Seletor de Quantidade (baseado no BuyBox e na imagem do carrinho)
-const quantitySelectorContainerStyles = { // Container específico para o label e o seletor
+// Estilos para o Seletor de Quantidade
+const quantitySelectorContainerStyles = { 
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center', // Centraliza o seletor abaixo do label
-    minWidth: '110px', // Largura para acomodar o seletor
+    alignItems: 'center',
+    minWidth: '110px',
 };
 
 const quantityInputControlsStyles = {
@@ -99,14 +97,14 @@ const quantityInputControlsStyles = {
   border: '1px solid var(--light-gray-2)',
   borderRadius: '4px',
   overflow: 'hidden',
-  marginTop: '2px', // Pequeno espaço do label
+  marginTop: '2px',
 };
 
 const quantityButtonStyles = {
-  width: '30px', // Ajustar tamanho
+  width: '30px',
   height: '30px',
   border: 'none',
-  backgroundColor: 'var(--light-gray-3)', // Fundo dos botões +/-
+  backgroundColor: 'var(--light-gray-3)',
   color: 'var(--dark-gray-2)',
   fontSize: '16px',
   cursor: 'pointer',
@@ -116,7 +114,7 @@ const quantityButtonStyles = {
 };
 
 const quantityInputStyles = {
-  width: '40px', // Ajustar largura
+  width: '40px',
   height: '28px',
   textAlign: 'center',
   border: 'none',

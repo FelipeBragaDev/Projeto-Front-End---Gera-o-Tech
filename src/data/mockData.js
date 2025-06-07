@@ -1,4 +1,3 @@
-// src/data/mockData.js
 export const mockProducts = [
   {
     id: 'prod1',
@@ -10,7 +9,7 @@ export const mockProducts = [
     reviewCount: 195,
     originalPrice: 299.99,
     discountedPrice: 219.00,
-    discountPercentage: 27, // Calculado ( (299.99-219)/299.99 * 100 )
+    discountPercentage: 27, 
     imageUrl: '/images/products/nike-revolution-main.png',
     images: [
       '/images/products/nike-revolution-main.png',
@@ -42,7 +41,7 @@ export const mockProducts = [
     reviewCount: 195,
     originalPrice: 299.99,
     discountedPrice: 219.00,
-    discountPercentage: 27, // Calculado ( (299.99-219)/299.99 * 100 )
+    discountPercentage: 27, 
     imageUrl: '/images/products/nike-revolution-main.png',
     images: [
       '/images/products/nike-revolution-main.png',
@@ -70,7 +69,7 @@ export const mockProducts = [
     reviewCount: 195,
     originalPrice: 299.99,
     discountedPrice: 219.00,
-    discountPercentage: 27, // Calculado ( (299.99-219)/299.99 * 100 )
+    discountPercentage: 27, 
     imageUrl: '/images/products/nike-revolution-main.png',
     images: [
       '/images/products/nike-revolution-main.png',
@@ -98,7 +97,7 @@ export const mockProducts = [
     reviewCount: 195,
     originalPrice: 299.99,
     discountedPrice: 219.00,
-    discountPercentage: 27, // Calculado ( (299.99-219)/299.99 * 100 )
+    discountPercentage: 27, 
     imageUrl: '/images/products/nike-revolution-main.png',
     images: [
       '/images/products/nike-revolution-main.png',
@@ -126,7 +125,7 @@ export const mockProducts = [
     reviewCount: 195,
     originalPrice: 299.99,
     discountedPrice: 219.00,
-    discountPercentage: 27, // Calculado ( (299.99-219)/299.99 * 100 )
+    discountPercentage: 27,
     imageUrl: '/images/products/nike-revolution-main.png',
     images: [
       '/images/products/nike-revolution-main.png',
@@ -154,7 +153,7 @@ export const mockProducts = [
     reviewCount: 195,
     originalPrice: 299.99,
     discountedPrice: 219.00,
-    discountPercentage: 27, // Calculado ( (299.99-219)/299.99 * 100 )
+    discountPercentage: 27, 
     imageUrl: '/images/products/nike-revolution-main.png',
     images: [
       '/images/products/nike-revolution-main.png',
@@ -189,5 +188,5 @@ export const mockCartItemsData = [
     quantity: 1,
     imageUrl: '/images/products/nike-revolution-thumb1.png',
   },
-  // Adicione mais itens se quiser testar o resumo com múltiplos produtos
+
 ];

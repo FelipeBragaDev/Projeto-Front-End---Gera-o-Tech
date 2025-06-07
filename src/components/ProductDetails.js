@@ -1,26 +1,25 @@
 import React from 'react';
-// Importar ícones de estrela se for usar react-icons
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 
 const detailsContainerStyles = {
-  marginBottom: '20px', // Espaço antes do próximo componente (ProductOptions)
+  marginBottom: '20px', 
 };
 
 const productNameStyles = {
-  fontSize: 'clamp(26px, 4vw, 30px)', // Ajustar tamanho
-  fontWeight: '700', // Bold
+  fontSize: 'clamp(26px, 4vw, 30px)',
+  fontWeight: '700',
   color: 'var(--dark-gray)',
-  marginBottom: '8px', // Menos espaço abaixo do nome
+  marginBottom: '8px', 
   lineHeight: '1.3',
 };
 
-const subInfoStyles = { // Para Categoria | Marca - REF
+const subInfoStyles = { 
   fontSize: '13px',
-  color: 'var(--light-gray)', // Cor cinza claro
+  color: 'var(--light-gray)', 
   marginBottom: '12px',
 };
 
-const brandTextStyles = { // Para destacar a marca
+const brandTextStyles = { 
   color: 'var(--dark-gray-3)',
 };
 
@@ -33,9 +32,9 @@ const ratingContainerStyles = {
 };
 
 const starIconStyles = {
-  color: 'var(--warning)', // Estrelas amarelas/laranjas
-  marginRight: '2px', // Espacinho entre estrelas
-  fontSize: '16px', // Tamanho da estrela
+  color: 'var(--warning)', 
+  marginRight: '2px', 
+  fontSize: '16px', 
 };
 
 const reviewCountStyles = {
@@ -47,31 +46,31 @@ const priceStyles = {
   marginBottom: '20px',
   display: 'flex',
   alignItems: 'flex-end',
-  gap: '12px', // Aumentar um pouco o gap
+  gap: '12px',
 };
 
 const currentPriceStyles = {
-  fontSize: 'clamp(28px, 5vw, 36px)', // Preço atual bem grande
+  fontSize: 'clamp(28px, 5vw, 36px)',
   fontWeight: 'bold',
-  color: 'var(--dark-gray)', // <<< PREÇO ATUAL ESCURO
+  color: 'var(--dark-gray)',
   lineHeight: '1',
 };
 
 const originalPriceStyles = {
-  fontSize: '16px', // Menor que o preço atual
+  fontSize: '16px', 
   color: 'var(--light-gray)',
   textDecoration: 'line-through',
-  marginBottom: '5px', // Ajuste para alinhar melhor
+  marginBottom: '5px',
 };
 
 const productDescriptionStyles = {
-  fontSize: '15px', // Tamanho padrão para descrição
+  fontSize: '15px', 
   color: 'var(--dark-gray-2)',
   lineHeight: '1.7',
   marginBottom: '20px',
 };
 
-// Função para renderizar estrelas (exemplo simples)
+// Função para renderizar estrelas
 const renderStars = (rating) => {
   const stars = [];
   const fullStars = Math.floor(rating);
@@ -91,7 +90,7 @@ const renderStars = (rating) => {
 };
 
 const formatPrice = (price) => {
-  if (typeof price !== 'number' || isNaN(price)) return ''; // Retornar vazio se inválido
+  if (typeof price !== 'number' || isNaN(price)) return ''; 
   return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(price);
 };
 
@@ -100,7 +99,7 @@ function ProductDetails({ product }) {
     return <p>Carregando detalhes do produto...</p>;
   }
 
-  // Adicionando um placeholder para descrição se não existir
+  
   const description = product.description || "Este produto combina estilo e conforto, ideal para diversas ocasiões. Fabricado com materiais de alta qualidade, garante durabilidade e um ajuste perfeito.";
 
   return (

@@ -10,15 +10,15 @@ const pageStyles = {
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
-  backgroundColor: 'var(--white)', // Fundo branco para a área principal da página
+  backgroundColor: 'var(--white)', 
 };
 
 const mainContentContainerStyles = {
   flex: 1,
-  maxWidth: '1320px', // Aumentar um pouco a largura máxima para acomodar melhor
+  maxWidth: '1320px',
   width: '90%',
-  margin: '30px auto', // Aumentar margem vertical
-  padding: '0 10px',   // Padding horizontal menor, pois o gap cuidará do espaçamento
+  margin: '30px auto', 
+  padding: '0 10px',   
   boxSizing: 'border-box',
 };
 
@@ -32,19 +32,19 @@ const pageHeaderStyles = {
   borderBottom: '1px solid var(--light-gray-2)',
 };
 
-const resultsTextContainerStyles = { // Container para "Resultados para..." e contagem
-    // Não precisa de estilos específicos aqui se o <p> já os tiver
+const resultsTextContainerStyles = { 
+
 };
 
-const resultsHighlightTextStyles = { // Para "Resultados para" e a categoria
+const resultsHighlightTextStyles = { 
   fontSize: '16px',
-  color: 'var(--dark-gray-3)', // Cor mais suave
+  color: 'var(--dark-gray-3)', 
   fontWeight: '400',
 };
 
-const resultsCategoryTextStyles = { // Para o nome da categoria em negrito
+const resultsCategoryTextStyles = { 
   fontWeight: '600',
-  color: 'var(--dark-gray)', // Cor mais escura para a categoria
+  color: 'var(--dark-gray)', 
 };
 
 const productCountStyles = {
@@ -60,32 +60,31 @@ const sortDropdownStyles = {
   fontSize: '14px',
   color: 'var(--dark-gray-2)',
   backgroundColor: 'var(--white)',
-  minWidth: '200px', // Largura mínima para o dropdown
+  minWidth: '200px', 
 };
 
 // Estilo para o layout de duas colunas (Filtros | Produtos)
 const contentLayoutStyles = {
   display: 'flex',
-  gap: '30px', // Espaço entre filtros e listagem de produtos
+  gap: '30px', 
   alignItems: 'flex-start',
 };
 
 
 function ProductListingPage() {
-  const [searchParams] = useSearchParams(); // Hook para ler parâmetros da URL
+  const [searchParams] = useSearchParams(); 
   const [displayedProducts, setDisplayedProducts] = useState([]);
-  const [pageMessage, setPageMessage] = useState(''); // Para a mensagem "Resultados para..."
+  const [pageMessage, setPageMessage] = useState(''); 
 
-  const searchTermFromURL = searchParams.get('search'); // Pega o valor do parâmetro 'search'
+  const searchTermFromURL = searchParams.get('search'); 
 
   useEffect(() => {
-    let filteredProducts = [...mockProducts]; // Começa com todos os produtos
+    let filteredProducts = [...mockProducts]; 
 
     if (searchTermFromURL) {
       const lowercasedSearchTerm = searchTermFromURL.toLowerCase();
       filteredProducts = mockProducts.filter(product =>
         product.name.toLowerCase().includes(lowercasedSearchTerm)
-        // Você pode expandir para buscar na categoria, descrição, etc.
         || product.category.toLowerCase().includes(lowercasedSearchTerm)
       );
       if (filteredProducts.length > 0) {
@@ -94,13 +93,12 @@ function ProductListingPage() {
           setPageMessage(`Nenhum resultado encontrado para: "${searchTermFromURL}"`);
       }
     } else {
-      // Se não houver termo de busca, mostra todos os produtos ou uma categoria padrão
-      // A lógica de categoria padrão que tínhamos pode ser adicionada aqui
-      setPageMessage('Nossos Produtos'); // Ou "Resultados para: Tênis" se tiver categoria padrão
+
+      setPageMessage('Nossos Produtos'); 
     }
     
     setDisplayedProducts(filteredProducts);
-  }, [searchTermFromURL]); // Re-executa o efeito quando o termo de busca na URL mudar
+  }, [searchTermFromURL]); 
 
   return (
     <div style={pageStyles}>

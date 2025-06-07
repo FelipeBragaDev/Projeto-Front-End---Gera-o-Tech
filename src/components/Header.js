@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Logo from './Logo';
-import { useNavigate, Link } from 'react-router-dom'; // Importar Link para navegação e useNavigate se necessário
+import { useNavigate, Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import MiniCart from './MiniCart';
 
 // Estilos para o Header
 const headerStyles = {
   display: 'flex',
-  flexDirection: 'column', // Para organizar em duas linhas
-  padding: '15px 40px',    // Padding vertical e horizontal
+  flexDirection: 'column',
+  padding: '15px 40px', 
   backgroundColor: 'var(--white)',
   borderBottom: '1px solid var(--light-gray-2)',
   color: 'var(--dark-gray)',
@@ -20,27 +20,25 @@ const topRowStyles = {
   justifyContent: 'space-between',
   alignItems: 'center',
   width: '100%',
-  marginBottom: '15px', // Espaço entre a linha superior e a de navegação
+  marginBottom: '15px', 
 };
 
 const logoContainerStyles = {
-  // O Logo já deve ter seu próprio estilo, aqui apenas para posicionamento se necessário
-  // Ex: flex: '0 0 auto'; // Não cresce, não encolhe, baseia-se no conteúdo
 };
 
 const searchContainerStyles = {
-  flexGrow: 1, // Faz o container da busca ocupar o espaço central
+  flexGrow: 1,
   display: 'flex',
-  justifyContent: 'center', // Centraliza a barra de busca dentro deste container
-  padding: '0 20px', // Espaçamento para não colar no logo ou botões
+  justifyContent: 'center', 
+  padding: '0 20px', 
 };
 
 const searchInputStyles = {
   padding: '10px 15px',
   border: '1px solid var(--light-gray-2)',
   borderRadius: '4px',
-  width: '100%', // Ocupa a largura do searchContainerStyles
-  maxWidth: '500px', // Limita a largura máxima da barra de busca
+  width: '100%', 
+  maxWidth: '500px',
   fontSize: '14px',
   backgroundColor: 'var(--light-gray-3)',
 };
@@ -48,40 +46,22 @@ const searchInputStyles = {
 const authActionsStyles = {
   display: 'flex',
   alignItems: 'center',
-  gap: '15px', // Espaço entre "Cadastre-se" e "Entrar"
+  gap: '15px',
 };
 
 const cartIconContainerStyles = {
-  position: 'relative', // Para posicionar o MiniCart em relação a este container
+  position: 'relative',
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
 };
 
 const cartIconStyles = {
-  fontSize: '24px', // Tamanho do ícone do carrinho
-  color: 'var(--dark-gray-2)', // Cor do ícone
-  // Se precisar de um contador de itens:
-  // position: 'relative', // Para o badge
+  fontSize: '24px', 
+  color: 'var(--dark-gray-2)',
 };
 
-// Badge para o número de itens (exemplo, não funcional ainda sem estado global)
-// const itemCountBadgeStyles = {
-//   position: 'absolute',
-//   top: '-8px',
-//   right: '-8px',
-//   backgroundColor: 'var(--primary)',
-//   color: 'var(--white)',
-//   borderRadius: '50%',
-//   padding: '2px 6px',
-//   fontSize: '10px',
-//   fontWeight: 'bold',
-//   minWidth: '10px', // Para garantir que seja um círculo mesmo com 1 dígito
-//   textAlign: 'center',
-//   lineHeight: '1',
-// };
-
-const secondaryButtonStyles = { // Estilo para "Cadastre-se" (sem fundo, borda primária)
+const secondaryButtonStyles = { 
   backgroundColor: 'transparent',
   color: 'var(--primary)',
   border: '1px solid var(--primary)',
@@ -92,7 +72,7 @@ const secondaryButtonStyles = { // Estilo para "Cadastre-se" (sem fundo, borda p
   fontWeight: 'bold',
 };
 
-const primaryButtonStyles = { // Estilo para "Entrar" (fundo primário)
+const primaryButtonStyles = { 
   backgroundColor: 'var(--primary)',
   color: 'var(--white)',
   padding: '10px 20px',
@@ -106,10 +86,10 @@ const primaryButtonStyles = { // Estilo para "Entrar" (fundo primário)
 // Estilos para a linha inferior (Navegação)
 const bottomRowStyles = {
   display: 'flex',
-  justifyContent: 'left', // Centraliza os links de navegação
+  justifyContent: 'left',
   alignItems: 'center',
   width: '100%',
-  paddingTop: '10px', // Um pequeno espaço acima dos links, se a borda do header não for suficiente
+  paddingTop: '10px',
 };
 
 const navLinkStyles = {
@@ -117,8 +97,8 @@ const navLinkStyles = {
   color: 'var(--dark-gray-2)',
   fontSize: '16px',
   fontWeight: '500',
-  padding: '5px 15px', // Padding para cada link
-  margin: '0 10px', // Espaço entre os links
+  padding: '5px 15px', 
+  margin: '0 10px', 
 };
 
 const activeNavLinkStyles = {
@@ -148,13 +128,11 @@ function Header() {
   };
 
   const handleSearchSubmit = (event) => {
-    event.preventDefault(); // Previne o recarregamento da página se estiver em um form
+    event.preventDefault(); 
     if (searchTerm.trim()) {
       navigate(`/products?search=${encodeURIComponent(searchTerm.trim())}`);
-      // Opcional: limpar o campo de busca após pesquisar
-      // setSearchTerm('');
+
     } else {
-      // Opcional: navegar para /products sem filtro se a busca for vazia
       navigate('/products');
     }
   };
@@ -185,7 +163,7 @@ function Header() {
           <div style={cartIconContainerStyles} onClick={toggleCart} role="button" tabIndex={0} onKeyDown={(e) => {if(e.key === 'Enter' || e.key === ' ') toggleCart()}}>
             <FaShoppingCart style={cartIconStyles} />
             {itemCount > 0 && (
-              <span style={{ /* itemCountBadgeStyles - cole o seu aqui e descomente se quiser o badge */
+              <span style={{ 
                 position: 'absolute', top: '-5px', right: '-5px', backgroundColor: 'var(--primary)',
                 color: 'var(--white)', borderRadius: '50%', padding: '1px 5px',
                 fontSize: '11px', fontWeight: 'bold', lineHeight: '1'
@@ -193,12 +171,11 @@ function Header() {
                 {itemCount}
               </span>
             )}
-            {isCartOpen && <MiniCart onClose={() => setIsCartOpen(false)} />} {/* Passando onClose para fechar o MiniCart */}
+            {isCartOpen && <MiniCart onClose={() => setIsCartOpen(false)} />} 
           </div>
         </div>
       </div>
 
-      {/* Linha Inferior - Navegação */}
       <div style={bottomRowStyles}>
         <nav>
           <a href="/" style={activeLink === "Home" ? activeNavLinkStyles : navLinkStyles}>Home</a>

@@ -7,15 +7,15 @@ const mockMiniCartItems = [
     id: 'prod1',
     name: 'Tênis Nike Revolution 6 Next Nature Masculino',
     price: 219.00,
-    originalPrice: 299.00, // Exemplo
-    imageUrl: '/images/products/nike-revolution-thumb1.png', // Imagem pequena
+    originalPrice: 299.00,
+    imageUrl: '/images/products/nike-revolution-thumb1.png', 
     quantity: 1,
   },
   {
     id: 'prod9',
     name: 'Camiseta Básica Algodão',
     price: 50.00,
-    originalPrice: 80.00, // Exemplo
+    originalPrice: 80.00, 
     imageUrl: '/images/products/camiseta-basica.png',
     quantity: 2,
   },
@@ -23,13 +23,13 @@ const mockMiniCartItems = [
 
 const miniCartStyles = {
   position: 'absolute',
-  top: 'calc(100% + 10px)', // Abaixo do ícone do carrinho + um pequeno espaço
+  top: 'calc(100% + 10px)', 
   right: 0,
-  width: '360px', // Largura do mini-carrinho
+  width: '360px',
   backgroundColor: 'var(--white)',
   borderRadius: '8px',
   boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.15)',
-  zIndex: 100, // Para ficar sobre outros elementos
+  zIndex: 100, 
   padding: '20px',
   border: '1px solid var(--light-gray-3)',
 };
@@ -44,10 +44,10 @@ const titleStyles = {
 };
 
 const itemListStyles = {
-  maxHeight: '250px', // Altura máxima antes de scroll
+  maxHeight: '250px',
   overflowY: 'auto',
   marginBottom: '15px',
-  paddingRight: '5px', // Espaço para a barra de rolagem
+  paddingRight: '5px',
 };
 
 const itemStyles = {
@@ -85,7 +85,7 @@ const itemNameStyles = {
 const itemPriceStyles = {
   fontSize: '14px',
   fontWeight: '600',
-  color: 'var(--primary)', // Preço em destaque
+  color: 'var(--primary)', 
 };
 const itemOriginalPriceStyles = {
     fontSize: '12px',
@@ -109,12 +109,12 @@ const totalSectionStyles = {
 
 const buttonsContainerStyles = {
   display: 'flex',
-  justifyContent: 'space-between', // Botões lado a lado
+  justifyContent: 'space-between', 
   gap: '10px',
 };
 
-const secondaryButtonStyles = { // Para "Esvaziar"
-  flex: 1, // Para dividir o espaço igualmente
+const secondaryButtonStyles = { 
+  flex: 1, 
   padding: '10px',
   backgroundColor: 'var(--light-gray-3)',
   color: 'var(--dark-gray-2)',
@@ -126,8 +126,8 @@ const secondaryButtonStyles = { // Para "Esvaziar"
   textAlign: 'center',
 };
 
-const primaryButtonStyles = { // Para "Ver Carrinho"
-  flex: 1, // Para dividir o espaço igualmente
+const primaryButtonStyles = { 
+  flex: 1,
   padding: '10px',
   backgroundColor: 'var(--primary)',
   color: 'var(--white)',
@@ -137,32 +137,29 @@ const primaryButtonStyles = { // Para "Ver Carrinho"
   fontWeight: 'bold',
   cursor: 'pointer',
   textAlign: 'center',
-  textDecoration: 'none', // Para o Link
+  textDecoration: 'none', 
 };
 
 const formatCurrency = (value) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
 
-function MiniCart({ onClose }) { // Recebe onClose para fechar
+function MiniCart({ onClose }) { 
   const navigate = useNavigate();
-  const cartItems = mockMiniCartItems; // Usando mock data por enquanto
+  const cartItems = mockMiniCartItems; 
 
   // Calcular valor total
   const totalValue = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handleViewCart = () => {
     navigate('/cart');
-    if (onClose) onClose(); // Fecha o mini carrinho ao navegar
+    if (onClose) onClose(); 
   };
 
   const handleEmptyCart = () => {
     console.log("Esvaziando carrinho (simulado)...");
-    // Lógica para limpar o carrinho viria aqui
-    if (onClose) onClose(); // Fecha o mini carrinho
+
+    if (onClose) onClose(); 
   };
   
-  // Para fechar o mini-carrinho ao clicar fora dele (efeito comum)
-  // Isso é um pouco mais avançado e pode exigir um hook customizado ou mais lógica no Header.
-  // Por enquanto, o onClose pode ser chamado pelos botões internos.
 
   return (
     <div style={miniCartStyles} onClick={(e) => e.stopPropagation()} /* Evita que o clique feche o carrinho imediatamente se o toggle estiver no mesmo elemento pai */ >
@@ -181,7 +178,6 @@ function MiniCart({ onClose }) { // Recebe onClose para fechar
                         <span style={itemOriginalPriceStyles}>{formatCurrency(item.originalPrice)}</span>
                     )}
                   </p>
-                  {/* <p style={{fontSize: '12px', color: 'var(--light-gray)'}}>Qtd: {item.quantity}</p> */}
                 </div>
               </div>
             ))}

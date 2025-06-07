@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-// Futuramente, poderíamos criar componentes separados para OrderListItem, UserInfoDisplay, etc.
-// import OrderListItem from '../components/OrderListItem';
-// import UserInfoDisplay from '../components/UserInfoDisplay';
 
-// --- Mock Data (coloque dentro do componente ou importe) ---
+
+// --- Mock Data ---
 const mockUserProfile = {
   personalInfo: {
     name: 'Francisco Antonio Pereira',
@@ -24,21 +22,21 @@ const mockUserProfile = {
 const mockUserOrders = [
   {
     id: '2234981932',
-    items: [{ name: 'Tênis Nike Revolution 6 Next Nature Masculino', imageUrl: '/images/products/nike-revolution-thumb1.png' }], // Simplificado para um item por pedido
+    items: [{ name: 'Tênis Nike Revolution 6 Next Nature Masculino', imageUrl: '/images/products/nike-revolution-thumb1.png' }], 
     status: 'Produto em trânsito',
-    statusColor: 'var(--warning)', // Laranja/Amarelo
+    statusColor: 'var(--warning)',
   },
   {
     id: '4495810492',
     items: [{ name: 'Tênis Nike Revolution 6 Next Nature Masculino', imageUrl: '/images/products/nike-revolution-thumb2.png' }],
     status: 'Finalizado',
-    statusColor: 'var(--success)', // Verde
+    statusColor: 'var(--success)',
   },
   {
     id: '4495810493',
     items: [{ name: 'Tênis Nike Revolution 6 Next Nature Masculino', imageUrl: '/images/products/nike-revolution-thumb3.png' }],
     status: 'Cancelado',
-    statusColor: 'var(--error)', // Vermelho
+    statusColor: 'var(--error)', 
   },
   {
     id: '4495810494',
@@ -60,7 +58,7 @@ const pageStyles = {
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
-  backgroundColor: 'var(--light-gray-3)', // Fundo geral da página
+  backgroundColor: 'var(--light-gray-3)',
 };
 
 const mainContentContainerStyles = {
@@ -69,13 +67,13 @@ const mainContentContainerStyles = {
   width: '90%',
   margin: '30px auto',
   display: 'flex',
-  gap: '30px', // Espaço entre a sidebar e o conteúdo principal
+  gap: '30px',
   alignItems: 'flex-start',
 };
 
 // Sidebar de Navegação (Esquerda)
 const sidebarStyles = {
-  flex: '0 0 280px', // Largura fixa para a sidebar
+  flex: '0 0 280px', 
   backgroundColor: 'var(--white)',
   padding: '25px',
   borderRadius: '8px',
@@ -83,7 +81,7 @@ const sidebarStyles = {
 };
 
 const sidebarTitleStyles = {
-  fontSize: '14px', // "Meu Perfil"
+  fontSize: '14px',
   fontWeight: '600',
   color: 'var(--dark-gray-3)',
   textTransform: 'uppercase',
@@ -95,7 +93,7 @@ const sidebarTitleStyles = {
 const navLinkStyles = {
   display: 'block',
   padding: '12px 15px',
-  margin: '0 -15px 5px -15px', // Para o background pegar o padding
+  margin: '0 -15px 5px -15px', 
   borderRadius: '4px',
   textDecoration: 'none',
   fontSize: '16px',
@@ -107,14 +105,14 @@ const navLinkStyles = {
 
 const activeNavLinkStyles = {
   ...navLinkStyles,
-  backgroundColor: 'var(--primary-light)', // Um rosa bem claro
+  backgroundColor: 'var(--primary-light)',
   color: 'var(--primary)',
   fontWeight: 'bold',
 };
 
 // Área de Conteúdo Principal (Direita)
 const contentAreaStyles = {
-  flex: 1, // Ocupa o restante do espaço
+  flex: 1, 
   backgroundColor: 'var(--white)',
   padding: '30px',
   borderRadius: '8px',
@@ -171,7 +169,7 @@ const infoValueStyles = { color: 'var(--dark-gray-2)', fontWeight: '500' };
 
 
 function MyOrdersPage() {
-  const [activeView, setActiveView] = useState('meus-pedidos'); // 'meus-pedidos', 'minhas-informacoes', 'metodos-pagamento'
+  const [activeView, setActiveView] = useState('meus-pedidos');
 
   const renderContent = () => {
     switch (activeView) {

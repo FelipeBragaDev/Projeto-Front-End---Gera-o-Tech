@@ -57,14 +57,14 @@ const pageTitleStyles = {
 
 const cartLayoutStyles = {
   display: 'flex',
-  flexWrap: 'wrap', // Para responsividade
+  flexWrap: 'wrap',
   gap: '30px',
   alignItems: 'flex-start',
 };
 
 // Coluna da Esquerda: Itens do Carrinho e Utilitários (Cupom, Frete)
 const cartItemsColumnStyles = {
-  flex: '2 1 600px', // Ocupa mais espaço, base de 600px
+  flex: '2 1 600px',
   display: 'flex',
   flexDirection: 'column',
   gap: '20px',
@@ -72,11 +72,10 @@ const cartItemsColumnStyles = {
 
 // Coluna da Direita: Resumo do Pedido
 const orderSummaryColumnStyles = {
-  flex: '1 1 300px', // Ocupa menos espaço, base de 300px
+  flex: '1 1 300px',
   backgroundColor: 'var(--light-gray-3)',
   padding: '25px',
   borderRadius: '8px',
-  // boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.05)',
 };
 
 // Estilo para Resumo do Pedido (dentro de OrderSummary.js depois)
@@ -86,7 +85,7 @@ const summaryTotalRowStyles = { ...summaryRowStyles, fontSize: '18px', fontWeigh
 const continueButtonStyles = {
     width: '100%',
     padding: '15px',
-    backgroundColor: 'var(--warning)', // Laranja
+    backgroundColor: 'var(--warning)',
     color: 'var(--white)',
     border: 'none',
     borderRadius: '4px',
@@ -95,12 +94,12 @@ const continueButtonStyles = {
     textTransform: 'uppercase',
     cursor: 'pointer',
     marginTop: '10px',
-    textAlign: 'center', // Para o Link
-    textDecoration: 'none', // Para o Link
-    display: 'inline-block', // Para o Link
+    textAlign: 'center',
+    textDecoration: 'none', 
+    display: 'inline-block',
 };
 
-const utilitySectionStyles = { // Para Cupom e Frete
+const utilitySectionStyles = { 
     marginTop: '20px',
     padding: '20px',
     backgroundColor: 'var(--light-gray-3)',
@@ -134,16 +133,15 @@ const pageStyles_full = { display: 'flex', flexDirection: 'column', minHeight: '
 const mainContentContainerStyles_full = { flex: 1, maxWidth: '1200px', width: '90%', margin: '30px auto', padding: '0 10px', boxSizing: 'border-box'};
 const pageTitleStyles_full = { fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 'bold', color: 'var(--dark-gray)', marginBottom: '30px', textAlign: 'left', borderBottom: '1px solid var(--light-gray-3)', paddingBottom: '15px'};
 const cartLayoutStyles_full = { display: 'flex', flexWrap: 'wrap', gap: '30px', alignItems: 'flex-start'};
-const cartItemsColumnStyles_full = { flex: '2 1 600px', display: 'flex', flexDirection: 'column', gap: '0px' /* O padding/border do CartItem cuida do espaçamento */};
-const orderSummaryColumnStyles_full = { flex: '1 1 300px', position: 'sticky', top: '20px' /* Para o resumo ficar fixo ao rolar */ };
+const cartItemsColumnStyles_full = { flex: '2 1 600px', display: 'flex', flexDirection: 'column', gap: '0px' };
+const orderSummaryColumnStyles_full = { flex: '1 1 300px', position: 'sticky', top: '20px' };
 const utilitySectionStyles_full = { marginTop: '30px', padding: '25px', backgroundColor: 'var(--light-gray-3)', borderRadius: '8px'};
-const utilityInputGroupStyles_full = { display: 'flex', gap: '10px', marginBottom: '0px' /* Removida margem se for a única coisa */};
+const utilityInputGroupStyles_full = { display: 'flex', gap: '10px', marginBottom: '0px' };
 const utilityInputStyles_full = { flexGrow: 1, padding: '12px', border: '1px solid var(--light-gray-2)', borderRadius: '4px', fontSize: '14px'};
 const utilityButtonStyles_full = { padding: '12px 22px', backgroundColor: 'var(--primary)', color: 'var(--white)', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '14px', fontWeight: '500'};
 
 function CartPage() {
-  // Para simular a atualização e remoção de itens, vamos usar o estado aqui.
-  // No app real, isso viria do Contexto ou Redux.
+
   const [cartItems, setCartItems] = useState(initialMockCartItems);
 
   const handleUpdateItemQuantity = (itemId, newQuantity) => {
@@ -184,7 +182,7 @@ function CartPage() {
                       <label htmlFor="cupom" style={{display:'block', marginBottom:'10px', fontSize:'15px', fontWeight:'600', color: 'var(--dark-gray)'}}>Cupom de desconto</label>
                       <div style={utilityInputGroupStyles_full}>
                           <input type="text" id="cupom" placeholder="Insira seu código" style={utilityInputStyles_full} />
-                          <button style={utilityButtonStyles_full}>Aplicar</button> {/* Texto do botão como na imagem */}
+                          <button style={utilityButtonStyles_full}>Aplicar</button>
                       </div>
                   </div>
                   <div style={{...utilitySectionStyles_full, flex:1}}>
@@ -197,7 +195,7 @@ function CartPage() {
               </div>
             </div>
 
-            <div style={orderSummaryColumnStyles_full}> {/* Wrapper para o OrderSummary ter o sticky top */}
+            <div style={orderSummaryColumnStyles_full}>
                 <OrderSummary cartItems={cartItems} />
             </div>
           </main>
@@ -211,8 +209,8 @@ function CartPage() {
         )}
 
         <RelatedProducts 
-          currentProductId={cartItems.length > 0 ? cartItems[0].id : null} // Exemplo, para evitar mostrar o mesmo produto
-          currentProductCategory={cartItems.length > 0 ? cartItems[0].category : "Tênis"} // Exemplo
+          currentProductId={cartItems.length > 0 ? cartItems[0].id : null}
+          currentProductCategory={cartItems.length > 0 ? cartItems[0].category : "Tênis"}
         />
       </div>
       <Footer />

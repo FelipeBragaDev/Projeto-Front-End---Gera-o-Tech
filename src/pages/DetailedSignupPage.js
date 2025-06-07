@@ -33,7 +33,7 @@ const primaryButtonStyles = {
   width: '100%',
   maxWidth: '300px',
   display: 'block',
-  margin: '40px auto 0 auto', // Aumentei margem superior
+  margin: '40px auto 0 auto',
   padding: '14px',
   backgroundColor: 'var(--primary)',
   color: 'var(--white)',
@@ -45,20 +45,20 @@ const primaryButtonStyles = {
   transition: 'background-color 0.2s ease',
 };
 
-// Novo estilo para o container do checkbox e label
+
 const checkboxGroupStyles = {
   display: 'flex',
-  alignItems: 'flex-start', // Alinha o checkbox com o início do texto se o texto tiver múltiplas linhas
-  marginBottom: '25px', // Espaço antes do botão de finalizar
-  marginTop: '10px', // Espaço depois do último campo do formulário
+  alignItems: 'flex-start',
+  marginBottom: '25px',
+  marginTop: '10px', 
 };
 
 const checkboxInputStyles = {
   marginRight: '10px',
-  marginTop: '3px', // Pequeno ajuste para alinhar melhor com a primeira linha do texto
-  width: '16px', // Tamanho do checkbox
+  marginTop: '3px',
+  width: '16px', 
   height: '16px',
-  accentColor: 'var(--primary)', // Cor do checkmark rosa
+  accentColor: 'var(--primary)',
   cursor: 'pointer',
 };
 
@@ -67,10 +67,10 @@ const checkboxLabelStyles = {
   color: 'var(--dark-gray-2)',
   lineHeight: '1.5',
   cursor: 'pointer',
-  flex: 1, // Para o label ocupar o espaço e permitir quebra de linha
+  flex: 1, 
 };
 
-const primaryButtonStyles_full = { // Renomeado para evitar conflito se você copiou os _full da resposta anterior
+const primaryButtonStyles_full = {
   width: '100%',
   maxWidth: '300px',
   display: 'block',
@@ -94,7 +94,7 @@ function DetailedSignupPage() {
     cep: '', endereco: '', numero: '', complemento: '', bairro: '', cidade: '', estado: '',
     password: '', confirmPassword: '',
   });
-  const [receiveOffers, setReceiveOffers] = useState(true); // <<< NOVO ESTADO PARA O CHECKBOX, true por padrão
+  const [receiveOffers, setReceiveOffers] = useState(true);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -117,21 +117,18 @@ function DetailedSignupPage() {
   };
 
     return (
-    <div style={pageStyles}> {/* Supondo que pageStyles está definido */}
+    <div style={pageStyles}>
       <Header />
-      <main style={mainContentContainerStyles}> {/* Supondo que mainContentContainerStyles está definido */}
-        <h1 style={pageTitleStyles}>Complete seu Cadastro</h1> {/* Supondo que pageTitleStyles está definido */}
+      <main style={mainContentContainerStyles}>
+        <h1 style={pageTitleStyles}>Complete seu Cadastro</h1>
         <form onSubmit={handleSubmit}>
           {/* Seção Informações Pessoais */}
-          <div style={formSectionStyles}> {/* Supondo que formSectionStyles está definido */}
-            <h2 style={formSectionTitleStyles}>Informações Pessoais</h2> {/* Supondo que formSectionTitleStyles está definido */}
-            {/* ... seus campos de Nome Completo, CPF, Celular, Email, Senha, Confirmar Senha ... */}
-            {/* Exemplo de um campo para referência de estilo: */}
+          <div style={formSectionStyles}>
+            <h2 style={formSectionTitleStyles}>Informações Pessoais</h2>
             <div style={inputGroupStyles}>
-              <label htmlFor="fullName" style={labelStyles}>Nome Completo *</label> {/* Supondo que labelStyles está definido */}
-              <input type="text" name="fullName" id="fullName" style={inputStyles} placeholder="Insira seu nome completo" value={formData.fullName} onChange={handleChange} required /> {/* Supondo que inputStyles está definido */}
+              <label htmlFor="fullName" style={labelStyles}>Nome Completo *</label>
+              <input type="text" name="fullName" id="fullName" style={inputStyles} placeholder="Insira seu nome completo" value={formData.fullName} onChange={handleChange} required />
             </div>
-            {/* Adicione todos os outros inputs aqui, como na versão anterior */}
             <div style={inputGroupStyles}><label htmlFor="cpf" style={labelStyles}>CPF *</label><input type="text" name="cpf" id="cpf" style={inputStyles} placeholder="000.000.000-00" value={formData.cpf} onChange={handleChange} required /></div>
             <div style={inputGroupStyles}><label htmlFor="celular" style={labelStyles}>Celular *</label><input type="tel" name="celular" id="celular" style={inputStyles} placeholder="(00) 00000-0000" value={formData.celular} onChange={handleChange} required /></div>
             <div style={inputGroupStyles}><label htmlFor="email" style={labelStyles}>Email *</label><input type="email" name="email" id="email" style={inputStyles} placeholder="seuemail@exemplo.com" value={formData.email} onChange={handleChange} required /></div>
@@ -142,10 +139,7 @@ function DetailedSignupPage() {
           {/* Seção Informações de Endereço */}
           <div style={formSectionStyles}>
             <h2 style={formSectionTitleStyles}>Endereço de Entrega</h2>
-            {/* ... seus campos de CEP, Endereço, Número, Complemento, Bairro, Cidade, Estado ... */}
-            {/* Exemplo de um campo para referência de estilo: */}
             <div style={inputGroupStyles}><label htmlFor="cep" style={labelStyles}>CEP *</label><input type="text" name="cep" id="cep" style={inputStyles} placeholder="00000-000" value={formData.cep} onChange={handleChange} required /></div>
-            {/* Adicione todos os outros inputs de endereço aqui */}
             <div style={inputGroupStyles}><label htmlFor="endereco" style={labelStyles}>Endereço (Rua, Av.) *</label><input type="text" name="endereco" id="endereco" style={inputStyles} placeholder="Ex: Rua das Palmeiras" value={formData.endereco} onChange={handleChange} required /></div>
             <div style={inputGroupStyles}><label htmlFor="numero" style={labelStyles}>Número *</label><input type="text" name="numero" id="numero" style={inputStyles} placeholder="Ex: 123" value={formData.numero} onChange={handleChange} required /></div>
             <div style={inputGroupStyles}><label htmlFor="complemento" style={labelStyles}>Complemento</label><input type="text" name="complemento" id="complemento" style={inputStyles} placeholder="Ex: Apto 101, Bloco B" value={formData.complemento} onChange={handleChange} /></div>
@@ -159,10 +153,10 @@ function DetailedSignupPage() {
             <input 
               type="checkbox" 
               id="receiveOffers" 
-              name="receiveOffers" // Adicionado o nome para o evento onChange
+              name="receiveOffers"
               style={checkboxInputStyles}
               checked={receiveOffers}
-              onChange={handleChange} // Usando o mesmo handler
+              onChange={handleChange}
             />
             <label htmlFor="receiveOffers" style={checkboxLabelStyles}>
               Quero receber por email ofertas e novidades das lojas da Digital Store. A frequência de envios pode variar de acordo com a interação do cliente.

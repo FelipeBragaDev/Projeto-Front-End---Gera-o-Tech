@@ -3,24 +3,24 @@ import CollectionCard from './CollectionCard';
 
 // Estilos para a seção FeaturedCollections
 const sectionStyles = {
-  padding: '10px 100px', // Aumentar padding vertical
+  padding: '10px 100px',
 };
 
 const sectionTitleStyles = {
-  fontSize: 'clamp(24px, 4vw, 15px)', // Ajustar tamanho da fonte
+  fontSize: 'clamp(24px, 4vw, 15px)',
   fontWeight: 'bold',
   color: 'var(--dark-gray-2)',
   textAlign: 'left',
-  marginBottom: '30px', // Aumentar margem inferior
+  marginBottom: '30px',
 };
 
 const collectionsContainerStyles = {
   display: 'flex',
-  justifyContent: 'center', // <<< CENTRALIZAR OS CARDS NO CONTAINER
+  justifyContent: 'center',
   flexWrap: 'wrap',
-  gap: '25px', // Ajustar o espaço entre os cards
-  maxWidth: '1200px', // Definir uma largura máxima para o container e centralizá-lo
-  margin: '0 auto',    // Centraliza o container na página
+  gap: '25px',
+  maxWidth: '1200px',
+  margin: '0 auto',
 };
 
 // Dados das coleções

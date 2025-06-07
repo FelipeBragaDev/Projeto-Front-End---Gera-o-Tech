@@ -1,11 +1,11 @@
 import React from 'react';
 import ProductCard from './ProductCard';
-import { useNavigate } from 'react-router-dom'; // Importar para navegação
+import { useNavigate } from 'react-router-dom'; 
 
 // Estilos para a seção
 const sectionStyles = {
   padding: '40px 100px',
-  backgroundColor: 'var(--light-gray-3)', // Fundo claro para a seção
+  backgroundColor: 'var(--light-gray-3)', 
 };
 
 const sectionHeaderStyles = {
@@ -13,7 +13,7 @@ const sectionHeaderStyles = {
   justifyContent: 'space-between',
   alignItems: 'center',
   marginBottom: '0px',
-  padding: '0 20px', // Alinhar com o padding geral da seção
+  padding: '0 20px', 
 };
 
 const sectionTitleStyles = {
@@ -33,9 +33,9 @@ const viewAllLinkStyles = {
 
 const productsGridStyles = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', // Grid responsivo
-  gap: '30px', // Espaço entre os cards
-  justifyContent: 'center', // Centraliza os itens se houver espaço sobrando
+  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+  gap: '30px', 
+  justifyContent: 'center', 
 };
 
 const trendingProductsData = [
@@ -46,7 +46,7 @@ const trendingProductsData = [
     originalPrice: 200,
     discountedPrice: 100,
     discountPercentage: 50,
-    imageUrl: '/images/products/kswiss-v8.svg', // Exemplo
+    imageUrl: '/images/products/kswiss-v8.svg', 
   },
   {
     id: 'prod2',
@@ -55,7 +55,7 @@ const trendingProductsData = [
     originalPrice: 250,
     discountedPrice: 150,
     discountPercentage: 40,
-    imageUrl: '/images/products/kswiss-v8.svg', // Exemplo
+    imageUrl: '/images/products/kswiss-v8.svg', 
   },
   {
     id: 'prod3',
@@ -64,16 +64,16 @@ const trendingProductsData = [
     originalPrice: 180,
     discountedPrice: 120,
     discountPercentage: 33,
-    imageUrl: '/images/products/kswiss-v8.svg', // Exemplo
+    imageUrl: '/images/products/kswiss-v8.svg', 
   },
   {
     id: 'prod4',
     name: 'Puma RS-X Reinvention',
     category: 'Tênis',
     originalPrice: 220,
-    discountedPrice: 100, // Corrigido de 160 para 100 como no seu exemplo, se intencional. Se não, rever.
+    discountedPrice: 100, 
     discountPercentage: 27,
-    imageUrl: '/images/products/kswiss-v8.svg', // Exemplo
+    imageUrl: '/images/products/kswiss-v8.svg',
   },
   {
     id: 'prod5',
@@ -114,7 +114,7 @@ const trendingProductsData = [
 ];
 
 function TrendingProductsSection() {
-  const navigate = useNavigate(); // Hook para navegação
+  const navigate = useNavigate(); 
 
   const handleProductClick = (productId) => {
     console.log("Produto clicado:", productId);
@@ -135,15 +135,15 @@ function TrendingProductsSection() {
         </span>
       </div>
       <div style={productsGridStyles}>
-        {trendingProductsData.map((product, index) => { // MODIFICAÇÃO: Adicionada chave { e index
+        {trendingProductsData.map((product, index) => { 
           
-          // Verificação para não renderizar se dados essenciais faltarem ou forem inválidos
+
           if (!product || !product.id || typeof product.discountedPrice === 'undefined' || isNaN(product.discountedPrice)) {
               console.warn(`Produto ${index} não será renderizado devido a dados ausentes/inválidos.`);
-              return null; // Não renderiza este card se os dados essenciais estiverem ruins
+              return null; 
           }
 
-          // MODIFICAÇÃO: Adicionado return explícito
+
           return (
             <ProductCard
               key={product.id}
@@ -156,7 +156,7 @@ function TrendingProductsSection() {
               onClick={() => handleProductClick(product.id)}
             />
           );
-        })} {/* MODIFICAÇÃO: Fechada chave } */}
+        })}
       </div>
     </section>
   );

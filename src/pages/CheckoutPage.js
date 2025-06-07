@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import OrderSummary from '../components/OrderSummary'; // Reutilizaremos para o resumo
-import { mockCartItemsData } from '../data/mockData'; // Supondo que os dados do carrinho estão centralizados
+import OrderSummary from '../components/OrderSummary';
+import { mockCartItemsData } from '../data/mockData';
 import { useNavigate } from 'react-router-dom';
 
 // --- Estilos para a CheckoutPage ---
@@ -10,12 +10,12 @@ const pageStyles = {
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
-  backgroundColor: 'var(--light-gray-3)', // Fundo geral da página um pouco acinzentado
+  backgroundColor: 'var(--light-gray-3)',
 };
 
 const mainContentContainerStyles = {
   flex: 1,
-  maxWidth: '1100px', // Largura um pouco menor para checkout
+  maxWidth: '1100px',
   width: '90%',
   margin: '30px auto',
   padding: '0 10px',
@@ -59,7 +59,7 @@ const formSectionTitleStyles = {
   borderBottom: '1px solid var(--light-gray-3)',
 };
 
-const inputGroupStyles = { // Para agrupar label e input
+const inputGroupStyles = {
   marginBottom: '15px',
 };
 
@@ -78,15 +78,15 @@ const inputStyles = {
   borderRadius: '4px',
   fontSize: '14px',
   boxSizing: 'border-box',
-  backgroundColor: 'var(--light-gray-3)', // Fundo dos inputs como na imagem
+  backgroundColor: 'var(--light-gray-3)',
 };
 
-const inputRowStyles = { // Para inputs lado a lado (ex: Data de Validade e CVV)
+const inputRowStyles = { 
   display: 'flex',
   gap: '15px',
 };
 
-const inputWrapperStyles = { // Para envolver cada input em uma linha flex
+const inputWrapperStyles = { 
   flex: 1,
 };
 
@@ -116,12 +116,12 @@ const paymentTotalSectionStyles = {
   textAlign: 'center',
 };
 
-const totalTextContainerStyles = { // Novo estilo
+const totalTextContainerStyles = { 
    textAlign: 'right',
    marginBottom: '20px',
 };
 
-const paymentButtonContainerStyles = { // Novo estilo
+const paymentButtonContainerStyles = { 
    textAlign: 'center',
 };
 
@@ -140,7 +140,7 @@ const installmentTextCheckoutStyles = {
 
 const paymentButtonStyles = {
   padding: '14px 30px',
-  backgroundColor: 'var(--warning)', // Laranja
+  backgroundColor: 'var(--warning)',
   color: 'var(--white)',
   border: 'none',
   borderRadius: '4px',
@@ -153,19 +153,19 @@ const paymentButtonStyles = {
 };
 
 
-// Coluna da Direita: Resumo do Pedido (reutilizando OrderSummary)
+// Coluna da Direita: Resumo do Pedido 
 const summaryColumnStyles = {
-  flex: '1 1 320px', // Largura base menor
-  position: 'sticky', // Para o resumo acompanhar a rolagem
-  top: '20px',       // Distância do topo ao ficar sticky
+  flex: '1 1 320px', 
+  position: 'sticky', 
+  top: '20px', 
 };
 
 
 function CheckoutPage() {
-  const [paymentMethod, setPaymentMethod] = useState('cartao'); // 'cartao' ou 'boleto'
+  const [paymentMethod, setPaymentMethod] = useState('cartao');
   const navigate = useNavigate();
 
-  // Simular totais (no app real, viriam do carrinho/contexto)
+  // Simular totais
   const subtotal = mockCartItemsData.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const frete = 0.00;
   const desconto = 30.00;
@@ -173,7 +173,7 @@ function CheckoutPage() {
 
   const handlePayment = () => {
     console.log("Processando pagamento...");
-    navigate('/order-success'); // Navega para uma página de sucesso (a ser criada)
+    navigate('/order-success');
   };
 
   return (
@@ -293,7 +293,7 @@ function CheckoutPage() {
                 cartItems={mockCartItemsData}
                 showActionButton={false}
             />
-             {/* Botão de Pagamento na Coluna Direita, como na imagem */}
+             {/* Botão de Pagamento na Coluna Direita */}
              <div style={{ textAlign: 'center', marginTop: '20px' }}>
                 <button 
                     style={paymentButtonStyles} 

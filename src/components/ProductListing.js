@@ -1,10 +1,10 @@
 import React from 'react';
-import ProductCard from './ProductCard'; // Reutilizando o ProductCard
+import ProductCard from './ProductCard'; 
 import { useNavigate } from 'react-router-dom';
 import { mockProducts } from '../data/mockData';
 
 const productListingStyles = {
-  flex: 1, // Ocupa o espaço restante ao lado dos filtros
+  flex: 1, 
 };
 
 const productsGridStyles = {
@@ -13,7 +13,7 @@ const productsGridStyles = {
   gap: '30px',
 };
 
-function ProductListing({ products = mockProducts }) { // Default para mockProducts se nenhuma prop for passada
+function ProductListing({ products = mockProducts }) { 
   const navigate = useNavigate();
 
   const handleProductClick = (productId) => {

@@ -2,14 +2,14 @@ import React from 'react';
 
 // Estilos para o ProductCard
 const cardStyles = {
-  width: '280px', // Largura do card
-  border: 'none', // sem borda
+  width: '280px',
+  border: 'none',
   borderRadius: '8px',
   padding: '16px',
   backgroundColor: 'var(--white)',
   fontFamily: "'Inter', sans-serif",
   textAlign: 'left',
-  position: 'relative', // Para a tag de desconto
+  position: 'relative',
   cursor: 'pointer',
   transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
   display: 'flex',
@@ -18,14 +18,14 @@ const cardStyles = {
   boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.08)',
 };
 
-const cardHoverStyles = { // Estilos para aplicar no hover
+const cardHoverStyles = { 
   boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.12)',
   transform: 'translateY(-5px)',
 };
 
 const imageContainerStyles = {
   width: '100%',
-  height: '200px', // Altura fixa para a imagem
+  height: '200px', 
   borderRadius: '4px',
   display: 'flex',
   alignItems: 'center',
@@ -35,7 +35,7 @@ const imageContainerStyles = {
 };
 
 const productImageStyles = {
-  maxWidth: '90%', // Para ter um pequeno preenchimento
+  maxWidth: '90%', 
   maxHeight: '90%',
   objectFit: 'contain',
 };
@@ -44,32 +44,31 @@ const discountTagStyles = {
   position: 'absolute',
   top: '24px',
   left: '24px',
-  backgroundColor: '#E7FF86', // Cor de erro para destaque (vermelho/rosa)
+  backgroundColor: '#E7FF86', 
   color: '#3F6212',
   padding: '5px 10px',
-  borderRadius: '20px', // Formato de pílula
+  borderRadius: '20px', 
   fontSize: '12px',
   fontWeight: '600',
   zIndex: 1,
 };
 
 const productInfoStyles = {
-  flexGrow: 1, // Garante que esta área cresça para preencher o espaço
+  flexGrow: 1, 
 };
 
 const productNameStyles = {
-  fontSize: '16px', // Tamanho da fonte do nome do produto
-  fontWeight: '500', // Peso da fonte
+  fontSize: '16px', 
+  fontWeight: '500', 
   color: 'var(--dark-gray-2)',
   margin: '0 0 4px 0',
   lineHeight: '1.4',
-  // Para limitar a duas linhas e adicionar "..."
   display: '-webkit-box',
   WebkitLineClamp: 2,
   WebkitBoxOrient: 'vertical',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
-  minHeight: 'calc(1.4em * 2)', // Garante altura para duas linhas
+  minHeight: 'calc(1.4em * 2)',
 };
 
 const productCategoryStyles = {
@@ -82,8 +81,8 @@ const productCategoryStyles = {
 const priceContainerStyles = {
   display: 'flex',
   alignItems: 'baseline',
-  gap: '8px', // Espaço entre os preços
-  marginTop: 'auto', // Empurra os preços para baixo
+  gap: '8px', 
+  marginTop: 'auto', 
 };
 
 const originalPriceStyles = {
@@ -93,9 +92,9 @@ const originalPriceStyles = {
 };
 
 const discountedPriceStyles = {
-  fontSize: '18px', // Preço com desconto maior
+  fontSize: '18px', 
   fontWeight: 'bold',
-  color: 'var(--primary)', // Cor primária para o preço com desconto
+  color: 'var(--primary)', 
 };
 
 
@@ -148,7 +147,7 @@ function ProductCard({
         {typeof discountedPrice === 'number' && !isNaN(discountedPrice) ? (
             <span style={discountedPriceStyles}>{formatPrice(discountedPrice)}</span>
         ) : (
-            <span style={{...discountedPriceStyles, color: 'var(--error)'}}>R$ --,--</span> // Placeholder para preço inválido
+            <span style={{...discountedPriceStyles, color: 'var(--error)'}}>R$ --,--</span> 
         )}
       </div>
     </div>

@@ -6,7 +6,7 @@ import FeaturedCollections from '../components/FeaturedCollections';
 import CategoryNavigationSection from '../components/CategoryNavigationSection';
 import TrendingProductsSection from '../components/TrendingProductsSection'; 
 import CollectorEditionBanner from '../components/CollectorEditionBanner';
-// Importaremos outros componentes aqui conforme os criamos
+
 
 const homePageStyles = {
   display: 'flex',
@@ -16,8 +16,6 @@ const homePageStyles = {
 
 const mainContentStyles = {
   flex: 1,
-  // Removido o padding daqui para dar controle total às seções
-  // backgroundColor: 'var(--white)', // O fundo de cada seção pode variar
 };
 
 function HomePage() {
@@ -28,7 +26,6 @@ function HomePage() {
         <HeroSection />
         <FeaturedCollections /> 
         <CategoryNavigationSection />
-        {/*<ProductCard /> */}
         <TrendingProductsSection />
         <CollectorEditionBanner />
       </main>

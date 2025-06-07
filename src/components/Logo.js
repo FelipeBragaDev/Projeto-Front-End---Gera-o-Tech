@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Caminho para o ícone do logo padrão (rosa)
-const defaultLogoIconPath = '/images/logo-icon.png'; // Seu ícone rosa original
+const defaultLogoIconPath = '/images/logo-icon.png'; 
 
-function Logo({ color, iconSrc }) { // Adicionada a prop iconSrc
+function Logo({ color, iconSrc }) { 
   // Estilos para o container do logo (o link <a>)
   const logoContainerStyles = {
     display: 'flex',
