@@ -1,0 +1,55 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--light-gray-3); /* Usando #F5F5F5 light-gray-3 como cor de fundo base */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Definindo as variáveis de cor CSS para fácil acesso */
+:root {
+  --primary: #C92071;
+  --primary-light: #FDECF4;
+  --secondary: #B5B6F2;
+  --tertiary: #991956;
+  --error: #EE4266;
+  --success: #52CA76;
+  --warning: #F6AA1C;
+  --dark-gray: #1F1F1F;
+  --dark-gray-2: #474747;
+  --dark-gray-3: #666666;
+  --light-gray: #8F8F8F;
+  --light-gray-2: #CCCCCC;
+  --light-gray-3: #F5F5F5;
+  --light-gray-4: #eeeeee;
+  --white: #FFFFFF;
+  --collection-card-bg: #D8E3F2;
+}
+
+a.collection-card-link { text-decoration: none; }
+a.collection-card-link:hover { text-decoration: none; }
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); } /* Ajustei um pouco o bounce */
+}
+
+@keyframes progress {
+    0% { width: 0%; }
+    100% { width: 100%; } /* Simplifiquei a animação da barra para ir de 0 a 100% */
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); } /* Ajustei um pouco o float */
+}
